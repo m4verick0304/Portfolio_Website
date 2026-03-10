@@ -94,6 +94,8 @@
     }
     .theme-toggle:hover { background: var(--accent); color: #000; border-color: var(--accent); }
 
+    .header-actions { display: flex; align-items: center; gap: 10px; }
+
     /* ----- HERO SECTION ----- */
     .hero {
       min-height: 100vh;
@@ -422,8 +424,28 @@
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.5rem; }
       header { padding: 15px 20px; }
-      header nav { display: none; } /* Add mobile menu js if needed */
+      header nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 15, 26, 0.95);
+        padding: 20px;
+        box-sizing: border-box;
+        border-bottom: 1px solid var(--border);
+        gap: 15px;
+      }
+      body.light header nav { background: rgba(255,255,255,0.95); }
+      header nav.open { display: flex; }
+      .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+      .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+      body.light .hamburger span { background: var(--text-light); }
       section { padding: 60px 5%; }
+    }
+    @media (min-width: 769px) {
+      .hamburger { display: none; }
     }
   </style>
 </head>
@@ -433,7 +455,7 @@
 
 <header>
   <div class="logo">&lt;SG /&gt;</div>
-  <nav>
+  <nav id="main-nav">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
@@ -441,7 +463,12 @@
     <a href="#experience">Experience</a>
     <a href="#contact">Contact</a>
   </nav>
-  <button class="theme-toggle" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
+  <div class="header-actions">
+    <button class="theme-toggle" onclick="toggleTheme()"><i class="fa-solid fa-moon"></i></button>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
 
 <section class="hero" id="home">
@@ -546,19 +573,19 @@
       
       <div class="skill-item">
         <div class="skill-info"><span>Python</span><span>90%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 90%"></div></div>
+        <div class="progress-bar"><div class="progress-fill" data-width="90"></div></div>
       </div>
       <div class="skill-item">
         <div class="skill-info"><span>SQL</span><span>80%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+        <div class="progress-bar"><div class="progress-fill" data-width="80"></div></div>
       </div>
       <div class="skill-item">
         <div class="skill-info"><span>JavaScript</span><span>75%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+        <div class="progress-bar"><div class="progress-fill" data-width="75"></div></div>
       </div>
       <div class="skill-item">
-        <div class="skill-info"><span>Htmls-Css</span><span>95%%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 70%"></div></div>
+        <div class="skill-info"><span>HTML &amp; CSS</span><span>95%</span></div>
+        <div class="progress-bar"><div class="progress-fill" data-width="95"></div></div>
       </div>
     </div>
 
@@ -567,15 +594,15 @@
       
       <div class="skill-item">
         <div class="skill-info"><span>Ethical Hacking</span><span>85%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+        <div class="progress-bar"><div class="progress-fill" data-width="85"></div></div>
       </div>
       <div class="skill-item">
         <div class="skill-info"><span>Network Security</span><span>80%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+        <div class="progress-bar"><div class="progress-fill" data-width="80"></div></div>
       </div>
       <div class="skill-item">
         <div class="skill-info"><span>Penetration Testing</span><span>75%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+        <div class="progress-bar"><div class="progress-fill" data-width="75"></div></div>
       </div>
     </div>
 
@@ -584,19 +611,19 @@
       
       <div class="skill-item">
         <div class="skill-info"><span>Tkinter</span><span>85%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+        <div class="progress-bar"><div class="progress-fill" data-width="85"></div></div>
       </div>
       <div class="skill-item">
         <div class="skill-info"><span>Git</span><span>80%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+        <div class="progress-bar"><div class="progress-fill" data-width="80"></div></div>
       </div>
       <div class="skill-item">
         <div class="skill-info"><span>Nmap</span><span>40%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+        <div class="progress-bar"><div class="progress-fill" data-width="40"></div></div>
       </div>
       <div class="skill-item">
         <div class="skill-info"><span>Docker</span><span>65%</span></div>
-        <div class="progress-bar"><div class="progress-fill" style="width: 65%"></div></div>
+        <div class="progress-bar"><div class="progress-fill" data-width="65"></div></div>
       </div>
     </div>
   </div>
@@ -738,6 +765,20 @@
     }
   }
 
+  // Mobile Nav Toggle
+  function toggleNav() {
+    const nav = document.getElementById("main-nav");
+    nav.classList.toggle("open");
+  }
+  document.getElementById("hamburger").addEventListener("click", toggleNav);
+
+  // Close mobile nav when a link is clicked
+  document.querySelectorAll("#main-nav a").forEach(function(link) {
+    link.addEventListener("click", function() {
+      document.getElementById("main-nav").classList.remove("open");
+    });
+  });
+
   // Typewriter Effect
   const texts = [
     "B.Tech CSE Student",
@@ -768,6 +809,23 @@
       setTimeout(type, 100);
     }
   })();
+
+  // Animate skill progress bars when scrolled into view
+  const progressFills = document.querySelectorAll(".progress-fill");
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        const fill = entry.target;
+        const targetWidth = fill.getAttribute("data-width");
+        if (targetWidth) {
+          fill.style.width = targetWidth + "%";
+        }
+        observer.unobserve(fill);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  progressFills.forEach(function(fill) { observer.observe(fill); });
 </script>
 
 </body>
