@@ -19,19 +19,19 @@
        DESIGN TOKENS — CYBER THEME
        ============================================ */
     :root {
-      --bg: #050a15;
-      --bg-light: #e8edf2;
-      --text: #e0e6ed;
-      --text-light: #0d1117;
-      --card: rgba(8, 16, 32, 0.75);
-      --card-light: rgba(255, 255, 255, 0.8);
-      --accent: #00ff88;
-      --accent-2: #00d4ff;
-      --accent-light: #00cc6a;
-      --secondary: #7a8ba0;
-      --grid: rgba(0, 255, 136, 0.03);
-      --border: rgba(0, 255, 136, 0.1);
-      --glow: rgba(0, 255, 136, 0.12);
+      --bg: #09090b;
+      --bg-light: #f0f0f4;
+      --text: #ededf0;
+      --text-light: #111118;
+      --card: rgba(18, 18, 24, 0.85);
+      --card-light: rgba(248, 248, 255, 0.8);
+      --accent: #60a5fa;
+      --accent-2: #a78bfa;
+      --accent-light: #3b82f6;
+      --secondary: #a1a1aa;
+      --grid: rgba(96, 165, 250, 0.03);
+      --border: rgba(96, 165, 250, 0.25);
+      --glow: rgba(96, 165, 250, 0.15);
       --radius: 12px;
       --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
       --font-mono: "JetBrains Mono", "Fira Code", "Courier New", monospace;
@@ -65,8 +65,8 @@
       background: var(--bg-light);
       color: var(--text-light);
       --grid: rgba(0, 0, 0, 0.04);
-      --border: rgba(0, 80, 50, 0.12);
-      --glow: rgba(0, 255, 136, 0.06);
+      --border: rgba(30, 50, 120, 0.2);
+      --glow: rgba(96, 165, 250, 0.1);
     }
 
     /* ============================================
@@ -89,20 +89,21 @@
     #matrixCanvas {
       position: fixed;
       inset: 0;
-      z-index: -2;
+      z-index: 1;
       pointer-events: none;
+      opacity: 0.18;
     }
 
     .scanline-overlay {
       position: fixed;
       inset: 0;
-      z-index: -1;
+      z-index: 2;
       pointer-events: none;
       background: repeating-linear-gradient(0deg,
           transparent,
           transparent 2px,
-          rgba(0, 255, 136, 0.015) 2px,
-          rgba(0, 255, 136, 0.015) 4px);
+          rgba(96, 165, 250, 0.015) 2px,
+          rgba(96, 165, 250, 0.015) 4px);
     }
 
     body.light .scanline-overlay {
@@ -130,7 +131,7 @@
       align-items: center;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      background: rgba(5, 10, 21, 0.8);
+      background: rgba(9, 9, 11, 0.85);
       border-bottom: 1px solid var(--border);
       z-index: 1000;
       transition: background var(--transition);
@@ -298,7 +299,7 @@
     }
 
     .mobile-nav a:hover {
-      background: rgba(0, 255, 136, 0.08);
+      background: rgba(96, 165, 250, 0.12);
       color: var(--accent);
     }
 
@@ -346,7 +347,7 @@
     }
 
     .terminal-header {
-      background: rgba(0, 255, 136, 0.05);
+      background: rgba(96, 165, 250, 0.08);
       border-bottom: 1px solid var(--border);
       padding: 10px 16px;
       display: flex;
@@ -391,14 +392,14 @@
     }
 
     .badge {
-      background: rgba(0, 255, 136, 0.08);
+      background: rgba(96, 165, 250, 0.12);
       color: var(--accent);
       padding: 8px 20px;
       border-radius: 50px;
       font-size: 0.85rem;
       font-weight: 600;
       margin-bottom: 24px;
-      border: 1px solid rgba(0, 255, 136, 0.2);
+      border: 1px solid rgba(96, 165, 250, 0.35);
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -498,8 +499,8 @@
     }
 
     .hero-btn:hover {
-      background: rgba(0, 255, 136, 0.1);
-      box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+      background: rgba(96, 165, 250, 0.15);
+      box-shadow: 0 0 20px rgba(96, 165, 250, 0.2);
       transform: translateY(-2px);
     }
 
@@ -508,6 +509,8 @@
        ============================================ */
     section {
       padding: 100px 10%;
+      position: relative;
+      z-index: 3;
     }
 
     .section-title {
@@ -615,7 +618,7 @@
 
     .animated-item:hover .timeline-content {
       border-color: var(--accent);
-      box-shadow: 0 0 24px rgba(0, 255, 136, 0.12);
+      box-shadow: 0 0 24px rgba(96, 165, 250, 0.2);
     }
 
     /* ============================================
@@ -699,7 +702,7 @@
 
     .project-card:hover {
       transform: translateY(-6px);
-      border-color: rgba(0, 255, 136, 0.3);
+      border-color: rgba(96, 165, 250, 0.4);
       box-shadow: 0 16px 40px -15px var(--glow);
     }
 
@@ -717,26 +720,26 @@
     }
 
     .threat-badge.offensive {
-      background: rgba(255, 59, 48, 0.12);
-      color: #ff3b30;
-      border: 1px solid rgba(255, 59, 48, 0.25);
+      background: rgba(239, 68, 68, 0.12);
+      color: #ef4444;
+      border: 1px solid rgba(239, 68, 68, 0.3);
     }
 
     .threat-badge.utility {
-      background: rgba(0, 212, 255, 0.1);
+      background: rgba(167, 139, 250, 0.12);
       color: var(--accent-2);
-      border: 1px solid rgba(0, 212, 255, 0.25);
+      border: 1px solid rgba(167, 139, 250, 0.35);
     }
 
     .threat-badge.forensics {
-      background: rgba(0, 255, 136, 0.08);
+      background: rgba(96, 165, 250, 0.12);
       color: var(--accent);
-      border: 1px solid rgba(0, 255, 136, 0.2);
+      border: 1px solid rgba(96, 165, 250, 0.35);
     }
 
     .project-img {
       height: 200px;
-      background: linear-gradient(135deg, #111827, #1e293b);
+      background: linear-gradient(135deg, #0e0e12, #161620);
       position: relative;
       overflow: hidden;
     }
@@ -798,7 +801,7 @@
     .tech-tag {
       font-size: 0.72rem;
       font-weight: 600;
-      background: rgba(0, 255, 136, 0.07);
+      background: rgba(96, 165, 250, 0.1);
       color: var(--accent);
       padding: 4px 10px;
       border-radius: 6px;
@@ -808,7 +811,7 @@
     }
 
     body.light .tech-tag {
-      background: rgba(0, 100, 60, 0.08);
+      background: rgba(20, 40, 100, 0.08);
     }
 
     .project-links {
@@ -867,7 +870,7 @@
     }
 
     .skill-category:hover {
-      border-color: rgba(0, 255, 136, 0.2);
+      border-color: rgba(96, 165, 250, 0.35);
       box-shadow: 0 8px 24px -8px var(--glow);
     }
 
@@ -887,60 +890,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0, 255, 136, 0.08);
+      background: rgba(96, 165, 250, 0.12);
       border-radius: 10px;
     }
 
-    /* ============================================
-       SECURITY ARSENAL
-       ============================================ */
-    .arsenal-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 16px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .arsenal-item {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 12px;
-      text-align: center;
-      transition: var(--transition);
-      cursor: default;
-    }
-
-    body.light .arsenal-item {
-      background: var(--card-light);
-    }
-
-    .arsenal-item:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
-      transform: translateY(-3px);
-    }
-
-    .arsenal-item i,
-    .arsenal-item .arsenal-icon {
-      font-size: 1.8rem;
-      color: var(--accent);
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .arsenal-item span {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--secondary);
-      display: block;
-    }
-
-    .arsenal-item:hover span {
-      color: var(--accent);
-    }
 
     .skill-item {
       margin-bottom: 16px;
@@ -980,17 +933,14 @@
     }
 
     /* ============================================
-       EXPERIENCE TIMELINE
-       ============================================ */
-    /* ============================================
-       MISSION LOG TIMELINE
+       EXPERIENCE LOG TIMELINE
        ============================================ */
     .timeline {
       position: relative;
       max-width: 720px;
       margin: 0 auto;
       padding-left: 28px;
-      border-left: 2px solid rgba(0, 255, 136, 0.2);
+      border-left: 2px solid rgba(96, 165, 250, 0.35);
     }
 
     .timeline-item {
@@ -1009,7 +959,7 @@
       background: var(--accent);
       border: 3px solid var(--bg);
       border-radius: 50%;
-      box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.2);
+      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
     }
 
     body.light .timeline-dot {
@@ -1031,7 +981,7 @@
     }
 
     .timeline-content:hover {
-      border-color: rgba(0, 255, 136, 0.2);
+      border-color: rgba(96, 165, 250, 0.3);
       box-shadow: 0 8px 24px -8px var(--glow);
     }
 
@@ -1040,7 +990,7 @@
       font-size: 0.72rem;
       font-family: var(--font-mono);
       font-weight: 700;
-      background: rgba(0, 255, 136, 0.08);
+      background: rgba(96, 165, 250, 0.12);
       color: var(--accent);
       padding: 4px 10px;
       border-radius: 4px;
@@ -1062,9 +1012,9 @@
     }
 
     .mission-status.active {
-      background: rgba(0, 255, 136, 0.1);
+      background: rgba(96, 165, 250, 0.1);
       color: var(--accent);
-      border: 1px solid rgba(0, 255, 136, 0.3);
+      border: 1px solid rgba(96, 165, 250, 0.4);
     }
 
     .mission-status.classified {
@@ -1074,9 +1024,9 @@
     }
 
     .mission-status.completed {
-      background: rgba(0, 212, 255, 0.1);
+      background: rgba(167, 139, 250, 0.1);
       color: var(--accent-2);
-      border: 1px solid rgba(0, 212, 255, 0.3);
+      border: 1px solid rgba(167, 139, 250, 0.3);
     }
 
     .role {
@@ -1117,7 +1067,7 @@
 
     .cert-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(0, 255, 136, 0.25);
+      border-color: rgba(96, 165, 250, 0.35);
       box-shadow: 0 12px 28px -8px var(--glow);
     }
 
@@ -1148,7 +1098,25 @@
     .status-certified {
       color: var(--accent);
       border-color: var(--accent);
-      background: rgba(0, 255, 136, 0.08);
+      background: rgba(96, 165, 250, 0.12);
+    }
+
+    /* ============================================
+       FUZZY TEXT
+       ============================================ */
+    .fuzzy-text-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .fuzzy-text-wrapper canvas {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      font-family: 'Inter', system-ui, sans-serif;
+      cursor: default;
     }
 
     /* ============================================
@@ -1231,6 +1199,8 @@
       border-top: 1px solid var(--border);
       margin-top: 40px;
       opacity: 0.6;
+      position: relative;
+      z-index: 3;
     }
 
     footer p+p {
@@ -1259,7 +1229,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 24px -8px rgba(0, 255, 136, 0.35);
+      box-shadow: 0 8px 24px -8px rgba(96, 165, 250, 0.35);
       z-index: 900;
     }
 
@@ -1271,7 +1241,7 @@
 
     .scroll-top:hover {
       transform: translateY(-3px);
-      box-shadow: 0 12px 32px -8px rgba(0, 255, 136, 0.45);
+      box-shadow: 0 12px 32px -8px rgba(96, 165, 250, 0.45);
     }
 
     /* ============================================
@@ -1386,10 +1356,9 @@
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
-    <a href="#arsenal">Arsenal</a>
     <a href="#skills">Skills</a>
     <a href="#certs">Certifications</a>
-    <a href="#experience">Mission Log</a>
+    <a href="#experience">Experience Log</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -1399,10 +1368,9 @@
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
-      <a href="#arsenal">Arsenal</a>
       <a href="#skills">Skills</a>
       <a href="#certs">Certs</a>
-      <a href="#experience">Mission Log</a>
+      <a href="#experience">Experience Log</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="header-actions">
@@ -1531,23 +1499,7 @@
     </div>
   </section>
 
-  <!-- ====== SECURITY ARSENAL ====== -->
-  <section id="arsenal" class="reveal">
-    <h2 class="section-title"><span class="prompt">> _</span> Security Arsenal</h2>
-    <p class="section-subtitle">Tools & technologies in my cybersecurity toolkit</p>
-    <div class="divider"></div>
 
-    <div class="arsenal-grid">
-      <div class="arsenal-item stagger"><i class="fa-solid fa-radar"></i><span>Nmap</span></div>
-      <div class="arsenal-item stagger"><i class="fa-solid fa-wave-square"></i><span>Wireshark</span></div>
-      <div class="arsenal-item stagger"><i class="fa-solid fa-bug"></i><span>Burp Suite</span></div>
-      <div class="arsenal-item stagger"><i class="fa-solid fa-skull-crossbones"></i><span>Metasploit</span></div>
-      <div class="arsenal-item stagger"><i class="fa-brands fa-linux"></i><span>Kali Linux</span></div>
-      <div class="arsenal-item stagger"><i class="fa-brands fa-docker"></i><span>Docker</span></div>
-      <div class="arsenal-item stagger"><i class="fa-brands fa-python"></i><span>Python</span></div>
-      <div class="arsenal-item stagger"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
-    </div>
-  </section>
 
   <!-- ====== SKILLS ====== -->
   <section id="skills" class="reveal">
@@ -1558,27 +1510,27 @@
       <div class="skill-category stagger">
         <div class="skill-cat-title"><i class="fa-solid fa-code"></i> Programming</div>
         <div class="skill-item">
-          <div class="skill-info"><span>Python</span><span>90%</span></div>
+          <div class="skill-info"><span>Python</span><span>60%</span></div>
           <div class="progress-bar">
-            <div class="progress-fill" data-width="90"></div>
+            <div class="progress-fill" data-width="60"></div>
           </div>
         </div>
         <div class="skill-item">
-          <div class="skill-info"><span>SQL</span><span>80%</span></div>
+          <div class="skill-info"><span>SQL</span><span>30%</span></div>
           <div class="progress-bar">
-            <div class="progress-fill" data-width="80"></div>
+            <div class="progress-fill" data-width="30"></div>
           </div>
         </div>
         <div class="skill-item">
-          <div class="skill-info"><span>JavaScript</span><span>75%</span></div>
+          <div class="skill-info"><span>C</span><span>20%</span></div>
           <div class="progress-bar">
-            <div class="progress-fill" data-width="75"></div>
+            <div class="progress-fill" data-width="20"></div>
           </div>
         </div>
         <div class="skill-item">
-          <div class="skill-info"><span>HTML & CSS</span><span>95%</span></div>
+          <div class="skill-info"><span>HTML , CSS & Javas Script</span><span>55%</span></div>
           <div class="progress-bar">
-            <div class="progress-fill" data-width="95"></div>
+            <div class="progress-fill" data-width="55"></div>
           </div>
         </div>
       </div>
@@ -1586,21 +1538,21 @@
       <div class="skill-category stagger">
         <div class="skill-cat-title"><i class="fa-solid fa-shield"></i> Cybersecurity</div>
         <div class="skill-item">
-          <div class="skill-info"><span>Ethical Hacking</span><span>10%</span></div>
+          <div class="skill-info"><span>Wireshark</span><span>10%</span></div>
           <div class="progress-bar">
-            <div class="progress-fill" data-width="85"></div>
+            <div class="progress-fill" data-width="10"></div>
           </div>
         </div>
         <div class="skill-item">
           <div class="skill-info"><span>Networking</span><span>40%</span></div>
           <div class="progress-bar">
-            <div class="progress-fill" data-width="80"></div>
+            <div class="progress-fill" data-width="40"></div>
           </div>
         </div>
         <div class="skill-item">
-          <div class="skill-info"><span>Penetration Testing</span><span>15%</span></div>
+          <div class="skill-info"><span>Front-End</span><span>35%</span></div>
           <div class="progress-bar">
-            <div class="progress-fill" data-width="75"></div>
+            <div class="progress-fill" data-width="35"></div>
           </div>
         </div>
       </div>
@@ -1608,9 +1560,9 @@
       <div class="skill-category stagger">
         <div class="skill-cat-title"><i class="fa-solid fa-database"></i> Tools & Frameworks</div>
         <div class="skill-item">
-          <div class="skill-info"><span>Netcat</span><span>85%</span></div>
+          <div class="skill-info"><span>Netcat</span><span>50%</span></div>
           <div class="progress-bar">
-            <div class="progress-fill" data-width="85"></div>
+            <div class="progress-fill" data-width="50"></div>
           </div>
         </div>
         <div class="skill-item">
@@ -1668,7 +1620,7 @@
     </div>
   </section>
 
-  <!-- ====== MISSION LOG ====== -->
+  <!-- ====== EXPERIENCE LOG ====== -->
   <section id="experience" class="reveal">
     <h2 class="section-title"><span class="prompt">> _</span> Experience Log</h2>
     <div class="divider"></div>
@@ -1742,7 +1694,9 @@
 
   <!-- ====== CONTACT ====== -->
   <section id="contact" class="reveal">
-    <h2 class="section-title"><span class="prompt">> _</span> Establish Connection</h2>
+    <div class="fuzzy-text-wrapper">
+      <canvas id="fuzzyCanvas"></canvas>
+    </div>
     <p class="section-subtitle">Encrypted channel open. Ready to discuss new missions.</p>
 
     <div class="contact-box">
@@ -1783,9 +1737,9 @@
     const drops = new Array(columns).fill(1);
 
     function drawMatrix() {
-      ctx.fillStyle = 'rgba(5, 10, 21, 0.06)';
+      ctx.fillStyle = 'rgba(9, 9, 11, 0.06)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(0, 255, 136, 0.12)';
+      ctx.fillStyle = 'rgba(96, 165, 250, 0.9)';
       ctx.font = fontSize + 'px monospace';
 
       for (let i = 0; i < drops.length; i++) {
@@ -1926,7 +1880,7 @@
           });
         }
       });
-    }, { threshold: 0.3, rootMargin: "-80px 0px -50% 0px" });
+    }, { threshold: 0.15, rootMargin: "-80px 0px -40% 0px" });
     allSections.forEach(sec => navObserver.observe(sec));
 
     // ============================
@@ -1965,6 +1919,165 @@
     scrollTopBtn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
+    // ============================
+    // Fuzzy Text Effect
+    // ============================
+    (function initFuzzyText() {
+      const canvas = document.getElementById('fuzzyCanvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      const text = '> _ Establish Connection';
+      const fontWeight = 800;
+      const fuzzRange = 30;
+      const baseIntensity = 0.18;
+      const hoverIntensity = 0.5;
+      const fps = 60;
+      const frameDuration = 1000 / fps;
+
+      // Compute responsive font size (clamp equivalent)
+      function getNumericFontSize() {
+        const vw = window.innerWidth * 0.04;
+        return Math.max(18, Math.min(vw, 42));
+      }
+
+      let numericFontSize, fontSizeStr, fontString;
+      let offscreen, offCtx;
+      let offscreenWidth, tightHeight, textBoundingWidth, xOffset;
+      let interactiveLeft, interactiveTop, interactiveRight, interactiveBottom;
+      let horizontalMargin, verticalMargin;
+
+      function buildOffscreen() {
+        numericFontSize = getNumericFontSize();
+        fontSizeStr = numericFontSize + 'px';
+        const computedFamily = window.getComputedStyle(canvas).fontFamily || 'Inter, sans-serif';
+        fontString = fontWeight + ' ' + fontSizeStr + ' ' + computedFamily;
+
+        offscreen = document.createElement('canvas');
+        offCtx = offscreen.getContext('2d');
+        offCtx.font = fontString;
+        offCtx.textBaseline = 'alphabetic';
+
+        const metrics = offCtx.measureText(text);
+        const actualLeft = metrics.actualBoundingBoxLeft || 0;
+        const actualRight = metrics.actualBoundingBoxRight || metrics.width;
+        const actualAscent = metrics.actualBoundingBoxAscent || numericFontSize;
+        const actualDescent = metrics.actualBoundingBoxDescent || numericFontSize * 0.2;
+
+        textBoundingWidth = Math.ceil(actualLeft + actualRight);
+        tightHeight = Math.ceil(actualAscent + actualDescent);
+
+        const extraWidthBuffer = 10;
+        offscreenWidth = textBoundingWidth + extraWidthBuffer;
+        offscreen.width = offscreenWidth;
+        offscreen.height = tightHeight;
+
+        xOffset = extraWidthBuffer / 2;
+        offCtx.font = fontString;
+        offCtx.textBaseline = 'alphabetic';
+
+        // Draw prompt "> _" in accent color, rest in text color
+        const promptStr = '> _ ';
+        const mainStr = 'Establish Connection';
+        const accentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#3b82f6';
+        const textColor = getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#d4d4dc';
+
+        offCtx.fillStyle = accentColor;
+        offCtx.fillText(promptStr, xOffset - actualLeft, actualAscent);
+        const promptWidth = offCtx.measureText(promptStr).width;
+        offCtx.fillStyle = textColor;
+        offCtx.fillText(mainStr, xOffset - actualLeft + promptWidth, actualAscent);
+
+        horizontalMargin = fuzzRange + 20;
+        verticalMargin = 0;
+        canvas.width = offscreenWidth + horizontalMargin * 2;
+        canvas.height = tightHeight + verticalMargin * 2;
+
+        interactiveLeft = horizontalMargin + xOffset;
+        interactiveTop = verticalMargin;
+        interactiveRight = interactiveLeft + textBoundingWidth;
+        interactiveBottom = interactiveTop + tightHeight;
+      }
+
+      buildOffscreen();
+
+      let isHovering = false;
+      let currentIntensity = baseIntensity;
+      let targetIntensity = baseIntensity;
+      let lastFrameTime = 0;
+      let animationFrameId;
+
+      function run(timestamp) {
+        if (timestamp - lastFrameTime < frameDuration) {
+          animationFrameId = requestAnimationFrame(run);
+          return;
+        }
+        lastFrameTime = timestamp;
+
+        const ctxMain = canvas.getContext('2d');
+        ctxMain.setTransform(1, 0, 0, 1, 0, 0);
+        ctxMain.clearRect(0, 0, canvas.width, canvas.height);
+        ctxMain.translate(horizontalMargin, verticalMargin);
+
+        targetIntensity = isHovering ? hoverIntensity : baseIntensity;
+
+        // Smooth transition
+        const step = 0.05;
+        if (currentIntensity < targetIntensity) {
+          currentIntensity = Math.min(currentIntensity + step, targetIntensity);
+        } else if (currentIntensity > targetIntensity) {
+          currentIntensity = Math.max(currentIntensity - step, targetIntensity);
+        }
+
+        // Horizontal fuzzy displacement per row
+        for (let j = 0; j < tightHeight; j++) {
+          const dx = Math.floor(currentIntensity * (Math.random() - 0.5) * fuzzRange);
+          ctxMain.drawImage(offscreen, 0, j, offscreenWidth, 1, dx, j, offscreenWidth, 1);
+        }
+
+        animationFrameId = requestAnimationFrame(run);
+      }
+
+      animationFrameId = requestAnimationFrame(run);
+
+      // Hover detection over actual text bbox
+      function isInsideTextArea(x, y) {
+        return x >= interactiveLeft && x <= interactiveRight && y >= interactiveTop && y <= interactiveBottom;
+      }
+
+      canvas.addEventListener('mousemove', function(e) {
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        isHovering = isInsideTextArea(x, y);
+      });
+      canvas.addEventListener('mouseleave', function() {
+        isHovering = false;
+      });
+      canvas.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+        const rect = canvas.getBoundingClientRect();
+        const touch = e.touches[0];
+        const x = touch.clientX - rect.left;
+        const y = touch.clientY - rect.top;
+        isHovering = isInsideTextArea(x, y);
+      }, { passive: false });
+      canvas.addEventListener('touchend', function() {
+        isHovering = false;
+      });
+
+      // Rebuild on resize
+      let resizeTimeout;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+          cancelAnimationFrame(animationFrameId);
+          buildOffscreen();
+          animationFrameId = requestAnimationFrame(run);
+        }, 200);
+      });
+    })();
   </script>
 
 </body>
