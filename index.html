@@ -556,7 +556,7 @@
       transform: translateY(-2px);
     }
 
-
+              
     section {
       padding: 100px 10%;
       position: relative;
@@ -2255,6 +2255,52 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* ── Visit Profile direct-link button on each tile ── */
+    .csd-tile-visit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 7px 16px;
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-decoration: none;
+      color: #3fb950;
+      background: rgba(63, 185, 80, 0.1);
+      border: 1px solid rgba(63, 185, 80, 0.35);
+      transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+      position: relative;
+      z-index: 10;
+      pointer-events: all;
+    }
+    .csd-tile-visit-btn:hover {
+      background: rgba(63, 185, 80, 0.22);
+      box-shadow: 0 0 14px rgba(63, 185, 80, 0.3);
+      transform: translateY(-2px);
+    }
+    .csd-tile-visit-btn.thm {
+      color: var(--accent-2);
+      background: rgba(167, 139, 250, 0.1);
+      border-color: rgba(167, 139, 250, 0.35);
+    }
+    .csd-tile-visit-btn.thm:hover {
+      background: rgba(167, 139, 250, 0.22);
+      box-shadow: 0 0 14px rgba(167, 139, 250, 0.3);
+    }
+    .csd-tile-visit-btn.lc {
+      color: #ffa116;
+      background: rgba(255, 161, 22, 0.1);
+      border-color: rgba(255, 161, 22, 0.35);
+    }
+    .csd-tile-visit-btn.lc:hover {
+      background: rgba(255, 161, 22, 0.22);
+      box-shadow: 0 0 14px rgba(255, 161, 22, 0.3);
+    }
+
     .csd-backdrop {
       position: fixed;
       inset: 0;
@@ -2944,6 +2990,10 @@
         <div class="csd-tile-name">GitHub</div>
         <div class="csd-tile-preview" id="csd-gh-preview">loading stats...</div>
         <div class="csd-tile-cta"><span class="csd-tile-cta-dot"></span> click to explore</div>
+        <a class="csd-tile-visit-btn" href="https://github.com/m4verick0304" target="_blank" rel="noopener noreferrer"
+           onclick="event.stopPropagation()" title="Open GitHub profile">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Profile
+        </a>
       </div>
 
       <div class="csd-tile stagger-scale" data-platform="tryhackme" id="csd-tile-tryhackme" role="button" tabindex="0" aria-label="Open TryHackMe stats">
@@ -2952,6 +3002,10 @@
         <div class="csd-tile-name">TryHackMe</div>
         <div class="csd-tile-preview">Top 10% &nbsp;·&nbsp; 25+ rooms</div>
         <div class="csd-tile-cta"><span class="csd-tile-cta-dot"></span> click to explore</div>
+        <a class="csd-tile-visit-btn thm" href="https://tryhackme.com/p/m4vE.rick" target="_blank" rel="noopener noreferrer"
+           onclick="event.stopPropagation()" title="Open TryHackMe profile">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Profile
+        </a>
       </div>
 
       <div class="csd-tile stagger-scale" data-platform="leetcode" id="csd-tile-leetcode" role="button" tabindex="0" aria-label="Open LeetCode stats">
@@ -2960,6 +3014,10 @@
         <div class="csd-tile-name">LeetCode</div>
         <div class="csd-tile-preview" id="csd-lc-preview">loading stats...</div>
         <div class="csd-tile-cta"><span class="csd-tile-cta-dot"></span> click to explore</div>
+        <a class="csd-tile-visit-btn lc" href="https://leetcode.com/u/shubhamgupta03/" target="_blank" rel="noopener noreferrer"
+           onclick="event.stopPropagation()" title="Open LeetCode profile">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Profile
+        </a>
       </div>
 
     </div>
@@ -2979,7 +3037,7 @@
         </div>
         <div class="csd-chrome-right">
           <i class="fa-solid fa-arrow-rotate-right" style="color:#8b949e;font-size:0.75rem;opacity:0.5;"></i>
-          <a class="csd-ext-btn" id="csdExtLink" href="https://github.com/m4verick0304" target="_blank" rel="noopener noreferrer" title="Open in new tab"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <a class="csd-ext-btn" id="csdExtLink" href="https://github.com/m4verick0304" target="_blank" rel="noopener noreferrer" title="Open in new tab" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
       <div class="csd-tabbar">
@@ -3023,10 +3081,6 @@
         <div class="contact-info-item">
           <div class="contact-info-label"><i class="fa-solid fa-envelope"></i> Email</div>
           <div class="contact-info-value"><a href="mailto:shubham.20256@lpu.in">shubham.20256@lpu.in</a></div>
-        </div>
-        <div class="contact-info-item">
-          <div class="contact-info-label"><i class="fa-solid fa-phone"></i> Phone</div>
-          <div class="contact-info-value"><a href="tel:+919122522364">+91 9122522364</a></div>
         </div>
         <div class="contact-info-item">
           <div class="contact-info-label"><i class="fa-solid fa-location-dot"></i> Location</div>
