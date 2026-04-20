@@ -4062,13 +4062,6 @@
           _csdData.github.contribs = cnt > 0 ? cnt + '+' : '100+';
         } catch (_) { _csdData.github.contribs = '100+'; }
         try {
-          const calRes = await fetch('https://github-contributions-api.deno.dev/m4verick0304.json');
-          if (calRes.ok) {
-            const calData = await calRes.json();
-            _csdData.github.calendar = calData.contributions;
-          }
-        } catch (_) {}
-        try {
           localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data: _csdData.github }));
         } catch (_) { }
         const p = document.getElementById('csd-gh-preview');
@@ -4107,15 +4100,6 @@
             _csdData.leetcode.rating = rating > 0 ? rating : '--';
           }
         } catch (_) { }
-        try {
-          const calRes = await withTimeout(
-            fetch('https://alfa-leetcode-api.onrender.com/shubhamgupta03/calendar'), 8000
-          );
-          if (calRes.ok) {
-            const calData = await calRes.json();
-            _csdData.leetcode.calendar = JSON.parse(calData.submissionCalendar);
-          }
-        } catch (_) {}
         const p = document.getElementById('csd-lc-preview');
         if (p) p.textContent = _csdData.leetcode.solved + ' solved  ·  rating: ' + _csdData.leetcode.rating;
       } catch (e) {
@@ -4714,7 +4698,7 @@
         canvas.height = H;
         var ctx = canvas.getContext('2d');
 
-        // Seeded LCG so TryHackMe pattern is deterministic (fallback)
+        // Seeded LCG so pattern is deterministic per platform
         var seed = 0;
         for (var i = 0; i < platform.length; i++) seed = (seed * 31 + platform.charCodeAt(i)) & 0xffffffff;
         function rand() {
@@ -4726,44 +4710,18 @@
         var data = new Array(WEEKS * DAYS).fill(0);
         var today = new Date();
 
-        if (platform === 'github' && window._csdData && window._csdData.github && window._csdData.github.calendar) {
-          var cal = window._csdData.github.calendar;
-          var flatCal = [];
-          for (var w = 0; w < cal.length; w++) {
-            for (var d = 0; d < cal[w].length; d++) {
-              flatCal.push(cal[w][d].contributionCount);
-            }
+        for (var day = 0; day < WEEKS * DAYS; day++) {
+          var weeksAgo = Math.floor((WEEKS * DAYS - 1 - day) / DAYS);
+          // Bias: more activity in recent 12 weeks
+          var prob = weeksAgo < 12 ? 0.55 : (weeksAgo < 26 ? 0.3 : 0.15);
+          if (rand() < prob) {
+            var lvl = rand();
+            data[day] = lvl < 0.45 ? 1 : lvl < 0.72 ? 2 : lvl < 0.9 ? 3 : 4;
           }
-          var startIdx = Math.max(0, flatCal.length - WEEKS * DAYS);
-          for (var day = 0; day < WEEKS * DAYS; day++) {
-            var count = flatCal[startIdx + day] || 0;
-            data[day] = count === 0 ? 0 : (count < 4 ? 1 : (count < 7 ? 2 : (count < 10 ? 3 : 4)));
-          }
-        } else if (platform === 'leetcode' && window._csdData && window._csdData.leetcode && window._csdData.leetcode.calendar) {
-          var lcCal = window._csdData.leetcode.calendar;
-          var dayMap = {};
-          for (var ts in lcCal) {
-            dayMap[new Date(ts * 1000).toDateString()] = (dayMap[new Date(ts * 1000).toDateString()] || 0) + lcCal[ts];
-          }
-          for (var day = 0; day < WEEKS * DAYS; day++) {
-            var dObj = new Date(today);
-            dObj.setDate(dObj.getDate() - (WEEKS * DAYS - 1 - day));
-            var count = dayMap[dObj.toDateString()] || 0;
-            data[day] = count === 0 ? 0 : (count < 2 ? 1 : (count < 3 ? 2 : (count < 5 ? 3 : 4)));
-          }
-        } else {
-          // TryHackMe or Fallback (pseudo-random generated streak)
-          for (var day = 0; day < WEEKS * DAYS; day++) {
-            var weeksAgo = Math.floor((WEEKS * DAYS - 1 - day) / DAYS);
-            var prob = weeksAgo < 12 ? 0.55 : (weeksAgo < 26 ? 0.3 : 0.15);
-            if (rand() < prob) {
-              var lvl = rand();
-              data[day] = lvl < 0.45 ? 1 : lvl < 0.72 ? 2 : lvl < 0.9 ? 3 : 4;
-            }
-          }
-          // Always mark today as active (level 3)
-          data[WEEKS * DAYS - 1] = Math.max(data[WEEKS * DAYS - 1], 3);
         }
+
+        // Always mark today as active (level 3)
+        data[WEEKS * DAYS - 1] = Math.max(data[WEEKS * DAYS - 1], 3);
 
         // Draw cells
         ctx.clearRect(0, 0, W, H);
