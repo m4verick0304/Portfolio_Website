@@ -650,6 +650,46 @@
       transition-delay: 0.4s;
     }
 
+    .reveal.active .stagger:nth-child(9) {
+      transition-delay: 0.45s;
+    }
+
+    .reveal.active .stagger:nth-child(10) {
+      transition-delay: 0.5s;
+    }
+
+    .reveal.active .stagger:nth-child(11) {
+      transition-delay: 0.55s;
+    }
+
+    .reveal.active .stagger:nth-child(12) {
+      transition-delay: 0.6s;
+    }
+
+    .reveal.active .stagger:nth-child(13) {
+      transition-delay: 0.65s;
+    }
+
+    .reveal.active .stagger:nth-child(14) {
+      transition-delay: 0.7s;
+    }
+
+    .reveal.active .stagger:nth-child(15) {
+      transition-delay: 0.75s;
+    }
+
+    .reveal.active .stagger:nth-child(16) {
+      transition-delay: 0.8s;
+    }
+
+    .reveal.active .stagger:nth-child(17) {
+      transition-delay: 0.85s;
+    }
+
+    .reveal.active .stagger:nth-child(18) {
+      transition-delay: 0.9s;
+    }
+
 
     .animated-item {
       opacity: 0;
@@ -1162,6 +1202,173 @@
       transform: translateY(-5px);
       border-color: rgba(96, 165, 250, 0.35);
       box-shadow: 0 12px 28px -8px var(--glow);
+    }
+
+    /* ── Show Credentials Button ── */
+    .cert-cred-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 8px 18px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      letter-spacing: 0.3px;
+    }
+
+    .cert-cred-btn:hover {
+      background: rgba(96, 165, 250, 0.12);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px -6px rgba(96, 165, 250, 0.3);
+    }
+
+    .cert-cred-btn i {
+      font-size: 0.8rem;
+    }
+
+    .cert-planned-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 14px;
+      padding: 6px 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px dashed rgba(255,255,255,0.12);
+      border-radius: 8px;
+      color: var(--secondary);
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.3px;
+    }
+
+    body.light .cert-planned-pill {
+      border-color: rgba(0,0,0,0.12);
+    }
+
+    /* ── Credential Modal ── */
+    .cred-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 8000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cred-modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .cred-modal {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 28px 24px;
+      max-width: 480px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      transform: scale(0.92);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+      box-shadow: 0 24px 64px -16px rgba(0,0,0,0.5);
+    }
+
+    body.light .cred-modal {
+      background: var(--card-light);
+    }
+
+    .cred-modal-overlay.open .cred-modal {
+      transform: scale(1);
+    }
+
+    .cred-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      color: var(--secondary);
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .cred-modal-close:hover { color: var(--text); }
+
+    .cred-modal-icon {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    .cred-modal-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .cred-modal-org {
+      color: var(--secondary);
+      font-size: 0.88rem;
+      margin-bottom: 20px;
+    }
+
+    .cred-modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cred-modal-link {
+      padding: 10px 24px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cred-modal-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px -6px rgba(96,165,250,0.5);
+    }
+
+    .cred-modal-dismiss {
+      padding: 10px 20px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--secondary);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .cred-modal-dismiss:hover {
+      border-color: var(--accent);
+      color: var(--accent);
     }
 
     .cert-icon {
@@ -2695,8 +2902,7 @@
         <div class="project-content">
           <span class="threat-badge utility">UTILITY</span>
           <div class="project-title">Airline Reservation System</div>
-          <div class="project-desc">A smart task management application that uses Gemini API to automatically categorize
-            and prioritize tasks.</div>
+          <div class="project-desc">A desktop flight booking application built with Python, PyQt5 and SQLite. Features user authentication, seat selection, booking management, and a full admin panel — no internet required.</div>
           <div class="tech-stack">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">PyQt</span>
@@ -2704,10 +2910,8 @@
             <span class="tech-tag">SQLite</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/m4verick0304/airline_reservation_system.git" target="_blank"
-              class="btn-outline">Live Demo</a>
-            <a href="https://github.com/m4verick0304/airline_reservation_system.git" target="_blank"
-              class="btn-outline"><i class="fa-brands fa-github"></i> Code</a>
+            <a href="https://github.com/m4verick0304/airline_reservation_system" target="_blank" rel="noopener noreferrer"
+              class="btn-outline"><i class="fa-brands fa-github"></i> View Repo</a>
           </div>
         </div>
       </div>
@@ -2741,18 +2945,18 @@
           <span class="threat-badge forensics">FORENSICS</span>
           <div class="project-title" style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px;">Code Snippet
             Manager <span class="threat-badge"
-              style="background: rgba(234, 179, 8, 0.2); color: #facc15; border-color: rgba(234, 179, 8, 0.4); font-size: 0.6rem; padding: 2px 6px;">ON
-              WORK</span></div>
+              style="background: rgba(234, 179, 8, 0.2); color: #facc15; border-color: rgba(234, 179, 8, 0.4); font-size: 0.6rem; padding: 2px 6px;">IN
+              PROGRESS</span></div>
           <div class="project-desc">A desktop application for organizing and searching code snippets with syntax
             highlighting support.</div>
           <div class="tech-stack">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">Tkinter</span>
-            <span class="tech-tag">Time</span>
+            <span class="tech-tag">SQLite</span>
             <span class="tech-tag">SQL</span>
           </div>
           <div class="project-links">
-            <a href="#" class="btn-outline"><i class="fa-brands fa-github"></i> View Code</a>
+            <span class="btn-outline" style="opacity:0.45; cursor:not-allowed; pointer-events:none;"><i class="fa-solid fa-code-branch"></i> Repo Coming Soon</span>
           </div>
         </div>
       </div>
@@ -2850,29 +3054,46 @@
     <div class="divider"></div>
 
     <div class="certs-grid">
+      <!-- Intro to Cyber Security — Infosys (earned) -->
       <div class="cert-card stagger">
         <span class="cert-icon">🔒</span>
-        <span class="cert-status status-planned">2026</span>
+        <span class="cert-status status-certified">2026</span>
         <h3>Introduction to Cyber Security</h3>
         <p style="color: var(--secondary); font-size: 0.9rem;">Infosys</p>
+        <button class="cert-cred-btn"
+          onclick="openCredModal('Introduction to Cyber Security','Infosys','🔒','Infosys.pdf')">
+          <i class="fa-solid fa-id-badge"></i> Show Credential
+        </button>
       </div>
+      <!-- Ethical Hacker — CISCO (earned) -->
       <div class="cert-card stagger">
         <span class="cert-icon">🔒</span>
-        <span class="cert-status status-planned">2025</span>
+        <span class="cert-status status-certified">2025</span>
         <h3>Ethical Hacker</h3>
         <p style="color: var(--secondary); font-size: 0.9rem;">CISCO</p>
+        <button class="cert-cred-btn"
+          onclick="openCredModal('Ethical Hacker','CISCO Networking Academy','🔒','cisco.pdf')">
+          <i class="fa-solid fa-id-badge"></i> Show Credential
+        </button>
       </div>
+      <!-- Android Bug Bounty — EC-Council (earned) -->
       <div class="cert-card stagger">
         <span class="cert-icon">🛡️</span>
-        <span class="cert-status status-planned">2025</span>
+        <span class="cert-status status-certified">2025</span>
         <h3>Android Bug Bounty</h3>
         <p style="color: var(--secondary); font-size: 0.9rem;">EC-COUNCIL</p>
+        <button class="cert-cred-btn"
+          onclick="openCredModal('Android Bug Bounty','EC-Council','🛡️','ec-council.pdf')">
+          <i class="fa-solid fa-id-badge"></i> Show Credential
+        </button>
       </div>
+      <!-- CEH — Planned -->
       <div class="cert-card stagger">
         <span class="cert-icon">🎓</span>
         <span class="cert-status status-planned">Planned</span>
-        <h3>CEH(Certified Ethical Hacker)</h3>
+        <h3>CEH (Certified Ethical Hacker)</h3>
         <p style="color: var(--secondary); font-size: 0.9rem;">EC-COUNCIL</p>
+        <span class="cert-planned-pill"><i class="fa-solid fa-clock"></i> In progress</span>
       </div>
     </div>
   </section>
@@ -2935,7 +3156,7 @@
           <span class="time-tag">2025</span>
           <div class="role">Rank #6 in LeetCode Weekly Contest</div>
           <div class="org">Personal Merit</div>
-          <p style="color: var(--secondary);">Secured #6 rank globally in the LeetCode Weekly Contest (Virtual).
+          <p style="color: var(--secondary);">Secured #6 rank globally in the LeetCode Weekly Contest (Virtual contest rank — separate from overall platform rank).
             Currently hold a LeetCode Global Rank of 1,954,335.</p>
         </div>
       </div>
@@ -3301,9 +3522,21 @@
     };
 
     async function fetchGitHubStats() {
+      // localStorage cache with 1-hour TTL to avoid 60 req/hr rate limit
+      const CACHE_KEY = 'gh_stats_cache';
+      const CACHE_TTL = 60 * 60 * 1000; // 1 hour
+      try {
+        const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+        if (cached && Date.now() - cached.ts < CACHE_TTL) {
+          Object.assign(_csdData.github, cached.data);
+          const p = document.getElementById('csd-gh-preview');
+          if (p) p.textContent = cached.data.repos + ' repos  ·  ' + cached.data.followers + ' followers';
+          return;
+        }
+      } catch(_) {}
       try {
         const res = await fetch('https://api.github.com/users/m4verick0304');
-        if (!res.ok) throw new Error();
+        if (!res.ok) throw new Error('rate-limited');
         const data = await res.json();
         _csdData.github.repos     = data.public_repos || '0';
         _csdData.github.followers = data.followers    || '0';
@@ -3315,18 +3548,28 @@
           const cnt    = pushes.reduce((s,e) => s + (e.payload.commits ? e.payload.commits.length : 0), 0);
           _csdData.github.contribs = cnt > 0 ? cnt + '+' : '100+';
         } catch(_) { _csdData.github.contribs = '100+'; }
+        try {
+          localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data: _csdData.github }));
+        } catch(_) {}
         const p = document.getElementById('csd-gh-preview');
         if (p) p.textContent = _csdData.github.repos + ' repos  ·  ' + _csdData.github.followers + ' followers';
       } catch(e) {
         const p = document.getElementById('csd-gh-preview');
-        if (p) p.textContent = '15 repos  ·  data cached';
+        if (p) p.textContent = '15+ repos  ·  check GitHub';
       }
     }
     fetchGitHubStats();
 
     async function fetchLeetCodeStats() {
+      // 8-second timeout so the tile never stalls on Render cold-start
+      const withTimeout = (promise, ms) => Promise.race([
+        promise,
+        new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), ms))
+      ]);
       try {
-        const res = await fetch('https://alfa-leetcode-api.onrender.com/shubhamgupta03/solved');
+        const res = await withTimeout(
+          fetch('https://alfa-leetcode-api.onrender.com/shubhamgupta03/solved'), 8000
+        );
         if (res.ok) {
           const data = await res.json();
           _csdData.leetcode.solved  = data.solvedProblem || '0';
@@ -3335,7 +3578,9 @@
           _csdData.leetcode.hard    = data.hardSolved    || '0';
         }
         try {
-          const rRes  = await fetch('https://alfa-leetcode-api.onrender.com/shubhamgupta03/contest');
+          const rRes  = await withTimeout(
+            fetch('https://alfa-leetcode-api.onrender.com/shubhamgupta03/contest'), 8000
+          );
           if (rRes.ok) {
             const rData  = await rRes.json();
             const rating = Math.round(rData.contestRating || 0);
@@ -3345,8 +3590,9 @@
         const p = document.getElementById('csd-lc-preview');
         if (p) p.textContent = _csdData.leetcode.solved + ' solved  ·  rating: ' + _csdData.leetcode.rating;
       } catch(e) {
+        // Graceful fallback — show static values so tile is never stuck on "loading..."
         const p = document.getElementById('csd-lc-preview');
-        if (p) p.textContent = 'data loading...';
+        if (p) p.textContent = 'view profile on LeetCode';
       }
     }
     fetchLeetCodeStats();
@@ -3771,7 +4017,7 @@
           const joined    = d.joined    || '--';
           return [
             '<div class="ghv-header">',
-              '<img class="ghv-avatar" src="https://avatars.githubusercontent.com/u/m4verick0304?v=4" onerror="this.src=\'https://github.com/identicons/m4verick0304.png\'" alt="avatar">',
+              '<img class="ghv-avatar" src="https://github.com/m4verick0304.png" onerror="this.src=\'https://github.com/identicons/m4verick0304.png\'" alt="avatar">',
               '<div>',
                 '<div class="ghv-name">m4verick0304</div>',
                 '<div class="ghv-bio">B.Tech CSE &nbsp;|&nbsp; Cybersecurity &amp; Python Developer<br>Building practical security tools &amp; competing in CTFs</div>',
@@ -3784,7 +4030,7 @@
               '<div class="ghv-chip"><span class="ghv-chip-val" id="vs-gh-join">'  +joined+    '</span><div class="ghv-chip-lbl">Joined</div></div>',
             '</div>',
             '<div class="ghv-graph-lbl"><span class="online-indicator"></span> CONTRIBUTION_MATRIX</div>',
-            '<img class="ghv-graph-img" src="https://ghchart.rshah.org/39d353/m4verick0304" alt="GitHub contributions" loading="lazy">'
+            '<img class="ghv-graph-img" src="https://ghchart.rshah.org/39d353/m4verick0304" alt="GitHub contributions" loading="lazy" onerror="this.style.display=\'none\'">'
           ].join('');
         }
       },
@@ -3879,13 +4125,7 @@
               '<div class="lcv-rating-card"><div class="lcv-rating-lbl">Easy Solved</div><div class="lcv-rating-val">'+easy+'</div></div>',
               '<div class="lcv-rating-card"><div class="lcv-rating-lbl">Hard Solved</div><div class="lcv-rating-val">'+hard+'</div></div>',
             '</div>',
-            '<script>requestAnimationFrame(function(){',
-              '  var arc = document.getElementById("lcDonutArc");',
-              '  if(arc){ var c = 2*Math.PI*54; arc.style.strokeDasharray = "'+filled+' "+(circumference-filled+1)+'"; }',
-              '  var be=document.getElementById("lcBarE"); if(be) be.style.width="'+epct+'%";',
-              '  var bm=document.getElementById("lcBarM"); if(bm) bm.style.width="'+mpct+'%";',
-              '  var bh=document.getElementById("lcBarH"); if(bh) bh.style.width="'+hpct+'%";',
-            '});<\/script>'
+            '<!-- lc-anim-placeholder -->'
           ].join('');
         }
       }
@@ -3946,6 +4186,26 @@
         });
       }
 
+      // Animate LeetCode donut & bars (scripts injected via innerHTML are not executed by browsers)
+      if (platform === 'leetcode') {
+        setTimeout(function(){
+          var arc = document.getElementById('lcDonutArc');
+          if (arc) {
+            var d = (window._csdData && window._csdData.leetcode) || {};
+            var solved = parseInt(d.solved) || 0;
+            var circumference = 2 * Math.PI * 54;
+            var filled = solved ? Math.round(solved / 3000 * circumference) : 0;
+            arc.style.strokeDasharray = filled + ' ' + (circumference - filled + 1);
+          }
+          var easy   = parseInt((window._csdData && window._csdData.leetcode && window._csdData.leetcode.easy)   || 0);
+          var medium = parseInt((window._csdData && window._csdData.leetcode && window._csdData.leetcode.medium) || 0);
+          var hard   = parseInt((window._csdData && window._csdData.leetcode && window._csdData.leetcode.hard)   || 0);
+          var be = document.getElementById('lcBarE'); if (be) be.style.width = (easy   ? Math.round(easy   / 800  * 100) : 0) + '%';
+          var bm = document.getElementById('lcBarM'); if (bm) bm.style.width = (medium ? Math.round(medium / 1600 * 100) : 0) + '%';
+          var bh = document.getElementById('lcBarH'); if (bh) bh.style.width = (hard   ? Math.round(hard   / 600  * 100) : 0) + '%';
+        }, 120);
+      }
+
       document.body.style.overflow = 'hidden';
     }
 
@@ -3993,6 +4253,47 @@
     vscreen && vscreen.addEventListener('click', function(e) { e.stopPropagation(); });
 
   })();
+  </script>
+
+
+  <!-- Credential Modal -->
+  <div class="cred-modal-overlay" id="credModalOverlay" role="dialog" aria-modal="true" aria-labelledby="credModalTitle">
+    <div class="cred-modal">
+      <button class="cred-modal-close" id="credModalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="cred-modal-icon" id="credModalIcon">🔒</div>
+      <div class="cred-modal-title" id="credModalTitle"></div>
+      <div class="cred-modal-org" id="credModalOrg"></div>
+      <div class="cred-modal-actions">
+        <a class="cred-modal-link" id="credModalLink" href="#" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-pdf"></i> Open Certificate (PDF)
+        </a>
+        <button class="cred-modal-dismiss" id="credModalDismiss">Dismiss</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openCredModal(title, org, icon, url) {
+      const overlay = document.getElementById('credModalOverlay');
+      document.getElementById('credModalTitle').textContent = title;
+      document.getElementById('credModalOrg').textContent   = org;
+      document.getElementById('credModalIcon').textContent  = icon;
+      document.getElementById('credModalLink').href         = url;
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCredModal() {
+      document.getElementById('credModalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('credModalClose').addEventListener('click', closeCredModal);
+    document.getElementById('credModalDismiss').addEventListener('click', closeCredModal);
+    document.getElementById('credModalOverlay').addEventListener('click', function(e) {
+      if (e.target === this) closeCredModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeCredModal();
+    });
   </script>
 
 </body>
