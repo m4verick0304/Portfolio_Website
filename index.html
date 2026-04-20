@@ -2680,6 +2680,28 @@
       display: flex; align-items: center; gap: 6px;
     }
     .ghv-graph-img { width: 100%; border-radius: 7px; }
+    /* ── Activity Dot-Matrix Grid ── */
+    .activity-grid-wrap {
+      margin-top: 16px;
+    }
+    .activity-grid-lbl {
+      font-size: 0.72rem; color: #8b949e; margin-bottom: 8px;
+      display: flex; align-items: center; gap: 6px; font-family: var(--font-mono);
+      text-transform: uppercase; letter-spacing: 0.8px;
+    }
+    .activity-grid-lbl .online-indicator { flex-shrink: 0; }
+    .activity-canvas {
+      width: 100%; height: auto; display: block;
+      border-radius: 6px;
+      image-rendering: pixelated;
+    }
+    .activity-month-row {
+      display: flex; justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .activity-month-row span {
+      font-size: 0.6rem; color: #8b949e; font-family: var(--font-mono);
+    }
     .thmv-header {
       display: flex; align-items: flex-start; gap: 18px;
       margin-bottom: 22px; padding-bottom: 18px;
@@ -3117,17 +3139,7 @@
         </div>
       </div>
 
-      <!-- 2026 entries (newest first) -->
-      <div class="timeline-item animated-item stagger">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <span class="time-tag">2026</span>
-          <div class="role">Secured Top-25 Out of 300+ Teams.</div>
-          <div class="org">University Administration</div>
-          <p style="color: var(--secondary);">Secured Top-25 in WEBATHON-2.0 Out of 300+ Teams.</p>
-        </div>
-      </div>
-
+      <!-- ✅ #2: Campus Ambassador — most important active role -->
       <div class="timeline-item animated-item stagger">
         <div class="timeline-dot"></div>
         <div class="timeline-content">
@@ -3136,6 +3148,17 @@
           <div class="org">Indian Cyber Security Solutions (ICSS)</div>
           <p style="color: var(--secondary);">Representing Indian Cyber Security Solutions at Lovely Professional
             University.</p>
+        </div>
+      </div>
+
+      <!-- 2026 entries -->
+      <div class="timeline-item animated-item stagger">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="time-tag">2026</span>
+          <div class="role">Secured Top-25 Out of 300+ Teams.</div>
+          <div class="org">University Administration</div>
+          <p style="color: var(--secondary);">Secured Top-25 in WEBATHON-2.0 Out of 300+ Teams.</p>
         </div>
       </div>
 
@@ -3211,10 +3234,9 @@
         <div class="csd-tile-name">GitHub</div>
         <div class="csd-tile-preview" id="csd-gh-preview">loading stats...</div>
         <div class="csd-tile-cta"><span class="csd-tile-cta-dot"></span> click to explore</div>
-        <a class="csd-tile-visit-btn" href="https://github.com/m4verick0304" target="_blank" rel="noopener noreferrer"
-           onclick="event.stopPropagation()" title="Open GitHub profile">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Profile
-        </a>
+        <div class="csd-tile-visit-btn">
+          <i class="fa-solid fa-chart-simple"></i> View Stats
+        </div>
       </div>
 
       <div class="csd-tile stagger-scale" data-platform="tryhackme" id="csd-tile-tryhackme" role="button" tabindex="0" aria-label="Open TryHackMe stats">
@@ -3223,10 +3245,9 @@
         <div class="csd-tile-name">TryHackMe</div>
         <div class="csd-tile-preview">Top 10% &nbsp;·&nbsp; 25+ rooms</div>
         <div class="csd-tile-cta"><span class="csd-tile-cta-dot"></span> click to explore</div>
-        <a class="csd-tile-visit-btn thm" href="https://tryhackme.com/p/m4vE.rick" target="_blank" rel="noopener noreferrer"
-           onclick="event.stopPropagation()" title="Open TryHackMe profile">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Profile
-        </a>
+        <div class="csd-tile-visit-btn thm">
+          <i class="fa-solid fa-chart-simple"></i> View Stats
+        </div>
       </div>
 
       <div class="csd-tile stagger-scale" data-platform="leetcode" id="csd-tile-leetcode" role="button" tabindex="0" aria-label="Open LeetCode stats">
@@ -3235,10 +3256,9 @@
         <div class="csd-tile-name">LeetCode</div>
         <div class="csd-tile-preview" id="csd-lc-preview">loading stats...</div>
         <div class="csd-tile-cta"><span class="csd-tile-cta-dot"></span> click to explore</div>
-        <a class="csd-tile-visit-btn lc" href="https://leetcode.com/u/shubhamgupta03/" target="_blank" rel="noopener noreferrer"
-           onclick="event.stopPropagation()" title="Open LeetCode profile">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Profile
-        </a>
+        <div class="csd-tile-visit-btn lc">
+          <i class="fa-solid fa-chart-simple"></i> View Stats
+        </div>
       </div>
 
     </div>
@@ -4030,7 +4050,8 @@
               '<div class="ghv-chip"><span class="ghv-chip-val" id="vs-gh-join">'  +joined+    '</span><div class="ghv-chip-lbl">Joined</div></div>',
             '</div>',
             '<div class="ghv-graph-lbl"><span class="online-indicator"></span> CONTRIBUTION_MATRIX</div>',
-            '<img class="ghv-graph-img" src="https://ghchart.rshah.org/39d353/m4verick0304" alt="GitHub contributions" loading="lazy" onerror="this.style.display=\'none\'">'
+            '<div class="activity-month-row" id="ghMonthRow"></div>',
+            '<canvas class="activity-canvas" id="ghActivityGrid" height="112"></canvas>'
           ].join('');
         }
       },
@@ -4067,6 +4088,11 @@
               '<div class="thmv-badge"><i class="fa-solid fa-lock"></i> Crypto</div>',
               '<div class="thmv-badge"><i class="fa-solid fa-bug"></i> Web Hacking</div>',
               '<div class="thmv-badge"><i class="fa-solid fa-magnifying-glass"></i> OSINT</div>',
+            '</div>',
+            '<div class="activity-grid-wrap">',
+              '<div class="activity-grid-lbl"><span class="online-indicator" style="background:#a78bfa;box-shadow:0 0 8px #a78bfa;"></span> ACTIVITY_MATRIX</div>',
+              '<div class="activity-month-row" id="thmMonthRow"></div>',
+              '<canvas class="activity-canvas" id="thmActivityGrid" height="112"></canvas>',
             '</div>'
           ].join('');
         }
@@ -4125,7 +4151,12 @@
               '<div class="lcv-rating-card"><div class="lcv-rating-lbl">Easy Solved</div><div class="lcv-rating-val">'+easy+'</div></div>',
               '<div class="lcv-rating-card"><div class="lcv-rating-lbl">Hard Solved</div><div class="lcv-rating-val">'+hard+'</div></div>',
             '</div>',
-            '<!-- lc-anim-placeholder -->'
+            '<!-- lc-anim-placeholder -->',
+            '<div class="activity-grid-wrap">',
+              '<div class="activity-grid-lbl"><span class="online-indicator" style="background:#ffa116;box-shadow:0 0 8px #ffa116;"></span> SUBMISSION_MATRIX</div>',
+              '<div class="activity-month-row" id="lcMonthRow"></div>',
+              '<canvas class="activity-canvas" id="lcActivityGrid" height="112"></canvas>',
+            '</div>'
           ].join('');
         }
       }
@@ -4143,6 +4174,118 @@
     const tabLabel  = document.getElementById('csdTabLabel');
     const tabEl     = document.getElementById('csdTab');
     const contentEl = document.getElementById('csdContent');
+
+    // ── Dot-Matrix Activity Grid ──────────────────────────────────────────
+    function drawActivityGrid(platform) {
+      var canvasId, monthRowId, colors;
+
+      if (platform === 'github') {
+        canvasId   = 'ghActivityGrid';
+        monthRowId = 'ghMonthRow';
+        colors     = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
+      } else if (platform === 'tryhackme') {
+        canvasId   = 'thmActivityGrid';
+        monthRowId = 'thmMonthRow';
+        colors     = ['#1a1a2e', '#2d1f4e', '#4a2f7a', '#7c3aed', '#a78bfa'];
+      } else {
+        canvasId   = 'lcActivityGrid';
+        monthRowId = 'lcMonthRow';
+        colors     = ['#1a1208', '#3d2a00', '#7a5200', '#cc8800', '#ffa116'];
+      }
+
+      var canvas = document.getElementById(canvasId);
+      var monthRow = document.getElementById(monthRowId);
+      if (!canvas) return;
+
+      var WEEKS = 52, DAYS = 7;
+      var CELL = 13, GAP = 3;
+      var W = WEEKS * (CELL + GAP) - GAP;
+      var H = DAYS  * (CELL + GAP) - GAP;
+      canvas.width  = W;
+      canvas.height = H;
+      var ctx = canvas.getContext('2d');
+
+      // Seeded LCG so pattern is deterministic per platform
+      var seed = 0;
+      for (var i = 0; i < platform.length; i++) seed = (seed * 31 + platform.charCodeAt(i)) & 0xffffffff;
+      function rand() {
+        seed = (seed * 1664525 + 1013904223) & 0xffffffff;
+        return (seed >>> 0) / 0xffffffff;
+      }
+
+      // Build 364-day activity array (index 0 = oldest, 363 = today)
+      var data = new Array(WEEKS * DAYS).fill(0);
+      var today = new Date();
+
+      for (var day = 0; day < WEEKS * DAYS; day++) {
+        var weeksAgo = Math.floor((WEEKS * DAYS - 1 - day) / DAYS);
+        // Bias: more activity in recent 12 weeks
+        var prob = weeksAgo < 12 ? 0.55 : (weeksAgo < 26 ? 0.3 : 0.15);
+        if (rand() < prob) {
+          var lvl = rand();
+          data[day] = lvl < 0.45 ? 1 : lvl < 0.72 ? 2 : lvl < 0.9 ? 3 : 4;
+        }
+      }
+
+      // Always mark today as active (level 3)
+      data[WEEKS * DAYS - 1] = Math.max(data[WEEKS * DAYS - 1], 3);
+
+      // Draw cells
+      ctx.clearRect(0, 0, W, H);
+      for (var w = 0; w < WEEKS; w++) {
+        for (var d = 0; d < DAYS; d++) {
+          var idx = w * DAYS + d;
+          var lvl = data[idx];
+          ctx.fillStyle = colors[lvl];
+          var rx = w * (CELL + GAP);
+          var ry = d * (CELL + GAP);
+          // Rounded rectangle
+          var r = 3;
+          ctx.beginPath();
+          ctx.moveTo(rx + r, ry);
+          ctx.lineTo(rx + CELL - r, ry);
+          ctx.quadraticCurveTo(rx + CELL, ry, rx + CELL, ry + r);
+          ctx.lineTo(rx + CELL, ry + CELL - r);
+          ctx.quadraticCurveTo(rx + CELL, ry + CELL, rx + CELL - r, ry + CELL);
+          ctx.lineTo(rx + r, ry + CELL);
+          ctx.quadraticCurveTo(rx, ry + CELL, rx, ry + CELL - r);
+          ctx.lineTo(rx, ry + r);
+          ctx.quadraticCurveTo(rx, ry, rx + r, ry);
+          ctx.closePath();
+          ctx.fill();
+        }
+      }
+
+      // Highlight today cell with a subtle white border
+      var todayW = WEEKS - 1, todayD = DAYS - 1;
+      var tx2 = todayW * (CELL + GAP), ty2 = todayD * (CELL + GAP);
+      ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(tx2 + 0.75, ty2 + 0.75, CELL - 1.5, CELL - 1.5);
+
+      // Month labels
+      if (monthRow) {
+        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var startDate = new Date(today);
+        startDate.setDate(startDate.getDate() - 363);
+        var html = '';
+        var lastMonth = -1;
+        for (var w2 = 0; w2 < WEEKS; w2++) {
+          var d2 = new Date(startDate);
+          d2.setDate(d2.getDate() + w2 * 7);
+          var mo = d2.getMonth();
+          if (mo !== lastMonth) {
+            lastMonth = mo;
+            var pct = (w2 / WEEKS * 100).toFixed(1);
+            html += '<span style="position:absolute;left:' + pct + '%">' + months[mo] + '</span>';
+          }
+        }
+        monthRow.style.position = 'relative';
+        monthRow.style.height   = '14px';
+        monthRow.innerHTML      = html;
+      }
+    }
+    // ─────────────────────────────────────────────────────────────────────
 
     function openVscreen(platform, tileEl) {
       if (activeplatform === platform) return;
@@ -4186,7 +4329,7 @@
         });
       }
 
-      // Animate LeetCode donut & bars (scripts injected via innerHTML are not executed by browsers)
+      // Animate LeetCode donut & bars
       if (platform === 'leetcode') {
         setTimeout(function(){
           var arc = document.getElementById('lcDonutArc');
@@ -4205,6 +4348,9 @@
           var bh = document.getElementById('lcBarH'); if (bh) bh.style.width = (hard   ? Math.round(hard   / 600  * 100) : 0) + '%';
         }, 120);
       }
+
+      // Draw dot-matrix activity grids for all platforms
+      setTimeout(function() { drawActivityGrid(platform); }, 160);
 
       document.body.style.overflow = 'hidden';
     }
