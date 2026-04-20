@@ -2538,8 +2538,7 @@
       overflow: hidden;
       opacity: 0;
       pointer-events: none;
-      will-change: transform, opacity, clip-path;
-      clip-path: inset(50% 50% 50% 50% round 14px);
+      will-change: transform, opacity;
     }
     .csd-vscreen.csd-open {
       pointer-events: all;
@@ -4309,17 +4308,13 @@
 
       if (typeof gsap !== 'undefined') {
         gsap.fromTo(vscreen,
-          { x: tx, y: ty, scale: 0.08, opacity: 0, clipPath: 'inset(50% 50% 50% 50% round 14px)', force3D: true },
-          { x: 0,  y: 0,  scale: 1,   opacity: 1, clipPath: 'inset(0% 0% 0% 0% round 14px)',
-            duration: 0.58, ease: 'power3.out',
-            onComplete: function(){ gsap.set(vscreen, { clearProps: 'clipPath' }); }
-          }
+          { x: tx, y: ty, scale: 0.08, opacity: 0, force3D: true },
+          { x: 0,  y: 0,  scale: 1,   opacity: 1, duration: 0.58, ease: 'power3.out' }
         );
         gsap.fromTo(backdrop, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'power2.out' });
       } else {
         vscreen.style.transform  = 'translate(-50%,-50%) scale(1)';
         vscreen.style.opacity    = '1';
-        vscreen.style.clipPath   = 'none';
       }
 
       if (platform === 'tryhackme') {
