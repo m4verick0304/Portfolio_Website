@@ -556,7 +556,7 @@
       transform: translateY(-2px);
     }
 
-              
+
     section {
       padding: 100px 10%;
       position: relative;
@@ -807,10 +807,24 @@
     }
 
     @keyframes cv-shimmer {
-      0%   { left: -60%; opacity: 0; }
-      20%  { opacity: 1; }
-      60%  { left: 130%; opacity: 0; }
-      100% { left: 130%; opacity: 0; }
+      0% {
+        left: -60%;
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      60% {
+        left: 130%;
+        opacity: 0;
+      }
+
+      100% {
+        left: 130%;
+        opacity: 0;
+      }
     }
 
     body.light .cv-download-btn {
@@ -1241,8 +1255,8 @@
       gap: 5px;
       margin-top: 14px;
       padding: 6px 14px;
-      background: rgba(255,255,255,0.03);
-      border: 1px dashed rgba(255,255,255,0.12);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px dashed rgba(255, 255, 255, 0.12);
       border-radius: 8px;
       color: var(--secondary);
       font-size: 0.75rem;
@@ -1251,14 +1265,14 @@
     }
 
     body.light .cert-planned-pill {
-      border-color: rgba(0,0,0,0.12);
+      border-color: rgba(0, 0, 0, 0.12);
     }
 
     /* ── Credential Modal ── */
     .cred-modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.72);
+      background: rgba(0, 0, 0, 0.72);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       z-index: 8000;
@@ -1285,8 +1299,8 @@
       text-align: center;
       position: relative;
       transform: scale(0.92);
-      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
-      box-shadow: 0 24px 64px -16px rgba(0,0,0,0.5);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 24px 64px -16px rgba(0, 0, 0, 0.5);
     }
 
     body.light .cred-modal {
@@ -1309,7 +1323,9 @@
       transition: color 0.2s;
     }
 
-    .cred-modal-close:hover { color: var(--text); }
+    .cred-modal-close:hover {
+      color: var(--text);
+    }
 
     .cred-modal-icon {
       font-size: 2.8rem;
@@ -1351,7 +1367,7 @@
 
     .cred-modal-link:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px -6px rgba(96,165,250,0.5);
+      box-shadow: 0 8px 20px -6px rgba(96, 165, 250, 0.5);
     }
 
     .cred-modal-dismiss {
@@ -1407,7 +1423,8 @@
       justify-content: center;
       align-items: center;
       margin-bottom: 8px;
-      pointer-events: none;  /* never block clicks below */
+      pointer-events: none;
+      /* never block clicks below */
     }
 
     .fuzzy-text-wrapper canvas {
@@ -2364,7 +2381,10 @@
       }
     }
 
-    .csd-section { padding: 100px 6%; }
+    .csd-section {
+      padding: 100px 6%;
+    }
+
     .csd-tiles-row {
       display: flex;
       gap: 24px;
@@ -2372,9 +2392,10 @@
       flex-wrap: wrap;
       margin: 24px 0;
     }
+
     .csd-tile {
       position: relative;
-      background: rgba(14,18,30,0.92);
+      background: rgba(14, 18, 30, 0.92);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 30px 26px 22px;
@@ -2387,50 +2408,71 @@
       -webkit-backdrop-filter: blur(14px);
       user-select: none;
     }
-    body.light .csd-tile { background: rgba(240,242,252,0.92); }
+
+    body.light .csd-tile {
+      background: rgba(240, 242, 252, 0.92);
+    }
+
     .csd-tile:hover {
       border-color: var(--accent);
       transform: translateY(-5px);
-      box-shadow: 0 20px 50px -15px rgba(96,165,250,0.25);
+      box-shadow: 0 20px 50px -15px rgba(96, 165, 250, 0.25);
     }
+
     .csd-tile[data-platform="tryhackme"]:hover {
       border-color: var(--accent-2);
-      box-shadow: 0 20px 50px -15px rgba(167,139,250,0.25);
+      box-shadow: 0 20px 50px -15px rgba(167, 139, 250, 0.25);
     }
+
     .csd-tile[data-platform="leetcode"]:hover {
       border-color: #ffa116;
-      box-shadow: 0 20px 50px -15px rgba(255,161,22,0.25);
+      box-shadow: 0 20px 50px -15px rgba(255, 161, 22, 0.25);
     }
+
     .csd-tile-bg {
       position: absolute;
       inset: 0;
       border-radius: 16px;
       opacity: 0;
       transition: opacity 0.4s ease;
-      background: radial-gradient(circle at 50% 0%,rgba(96,165,250,0.08),transparent 70%);
+      background: radial-gradient(circle at 50% 0%, rgba(96, 165, 250, 0.08), transparent 70%);
       pointer-events: none;
     }
+
     .csd-tile[data-platform="tryhackme"] .csd-tile-bg {
-      background: radial-gradient(circle at 50% 0%,rgba(167,139,250,0.08),transparent 70%);
+      background: radial-gradient(circle at 50% 0%, rgba(167, 139, 250, 0.08), transparent 70%);
     }
+
     .csd-tile[data-platform="leetcode"] .csd-tile-bg {
-      background: radial-gradient(circle at 50% 0%,rgba(255,161,22,0.08),transparent 70%);
+      background: radial-gradient(circle at 50% 0%, rgba(255, 161, 22, 0.08), transparent 70%);
     }
-    .csd-tile:hover .csd-tile-bg { opacity: 1; }
+
+    .csd-tile:hover .csd-tile-bg {
+      opacity: 1;
+    }
+
     .csd-tile-icon {
       font-size: 2rem;
       margin-bottom: 12px;
       color: var(--accent);
       display: block;
     }
-    .csd-tile[data-platform="tryhackme"] .csd-tile-icon { color: var(--accent-2); }
-    .csd-tile[data-platform="leetcode"] .csd-tile-icon { color: #ffa116; }
+
+    .csd-tile[data-platform="tryhackme"] .csd-tile-icon {
+      color: var(--accent-2);
+    }
+
+    .csd-tile[data-platform="leetcode"] .csd-tile-icon {
+      color: #ffa116;
+    }
+
     .csd-tile-name {
       font-size: 1.15rem;
       font-weight: 700;
       margin-bottom: 6px;
       letter-spacing: -0.3px;
     }
+
     .csd-tile-preview {
       font-size: 0.78rem;
       font-family: var(--font-mono);
@@ -2438,6 +2480,7 @@
       margin-bottom: 18px;
       min-height: 1.2em;
     }
+
     .csd-tile-cta {
       display: inline-flex;
       align-items: center;
@@ -2450,14 +2493,23 @@
       transition: opacity 0.25s ease, transform 0.25s ease;
       letter-spacing: 0.5px;
     }
-    .csd-tile[data-platform="tryhackme"] .csd-tile-cta { color: var(--accent-2); }
-    .csd-tile[data-platform="leetcode"] .csd-tile-cta { color: #ffa116; }
+
+    .csd-tile[data-platform="tryhackme"] .csd-tile-cta {
+      color: var(--accent-2);
+    }
+
+    .csd-tile[data-platform="leetcode"] .csd-tile-cta {
+      color: #ffa116;
+    }
+
     .csd-tile-cta-dot {
-      width: 5px; height: 5px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
       background: currentColor;
       animation: pulse-glow 1.5s ease-in-out infinite;
     }
+
     .csd-tile:hover .csd-tile-cta {
       opacity: 1;
       transform: translateY(0);
@@ -2484,25 +2536,30 @@
       z-index: 10;
       pointer-events: all;
     }
+
     .csd-tile-visit-btn:hover {
       background: rgba(63, 185, 80, 0.22);
       box-shadow: 0 0 14px rgba(63, 185, 80, 0.3);
       transform: translateY(-2px);
     }
+
     .csd-tile-visit-btn.thm {
       color: var(--accent-2);
       background: rgba(167, 139, 250, 0.1);
       border-color: rgba(167, 139, 250, 0.35);
     }
+
     .csd-tile-visit-btn.thm:hover {
       background: rgba(167, 139, 250, 0.22);
       box-shadow: 0 0 14px rgba(167, 139, 250, 0.3);
     }
+
     .csd-tile-visit-btn.lc {
       color: #ffa116;
       background: rgba(255, 161, 22, 0.1);
       border-color: rgba(255, 161, 22, 0.35);
     }
+
     .csd-tile-visit-btn.lc:hover {
       background: rgba(255, 161, 22, 0.22);
       box-shadow: 0 0 14px rgba(255, 161, 22, 0.3);
@@ -2511,27 +2568,33 @@
     .csd-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.78);
+      background: rgba(0, 0, 0, 0.78);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       z-index: 10000;
       opacity: 0;
       pointer-events: none;
     }
-    .csd-backdrop.csd-open { opacity: 1; pointer-events: all; }
+
+    .csd-backdrop.csd-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
     .csd-vscreen {
       position: fixed;
-      top: 50%; left: 50%;
-      transform: translate(-50%,-50%) scale(0.08);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.08);
       width: min(90vw, 920px);
       height: min(84vh, 630px);
       background: #0d1117;
       border-radius: 14px;
-      border: 1px solid rgba(96,165,250,0.22);
+      border: 1px solid rgba(96, 165, 250, 0.22);
       box-shadow:
-        0 50px 120px rgba(0,0,0,0.8),
-        0 0 0 1px rgba(255,255,255,0.04),
-        0 0 80px rgba(96,165,250,0.08);
+        0 50px 120px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 0 80px rgba(96, 165, 250, 0.08);
       z-index: 10001;
       display: flex;
       flex-direction: column;
@@ -2540,38 +2603,68 @@
       pointer-events: none;
       will-change: transform, opacity;
     }
+
     .csd-vscreen.csd-open {
       pointer-events: all;
     }
-    body.light .csd-vscreen { background: #f0f2f5; border-color: rgba(30,50,120,0.2); }
+
+    body.light .csd-vscreen {
+      background: #f0f2f5;
+      border-color: rgba(30, 50, 120, 0.2);
+    }
+
     .csd-chrome {
       display: flex;
       align-items: center;
       gap: 10px;
       padding: 9px 14px;
       background: #161b22;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
       flex-shrink: 0;
     }
-    body.light .csd-chrome { background: #e8ecf0; border-color: rgba(0,0,0,0.08); }
-    .csd-chrome-dots { display: flex; gap: 6px; flex-shrink: 0; }
+
+    body.light .csd-chrome {
+      background: #e8ecf0;
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    .csd-chrome-dots {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
     .csd-chrome-dots span {
-      width: 12px; height: 12px;
+      width: 12px;
+      height: 12px;
       border-radius: 50%;
       cursor: pointer;
       transition: filter 0.15s;
     }
-    .csd-chrome-dots span:hover { filter: brightness(1.3); }
-    .csd-dot-close { background: #ff5f57; }
-    .csd-dot-min   { background: #ffbd2e; }
-    .csd-dot-max   { background: #28c840; }
+
+    .csd-chrome-dots span:hover {
+      filter: brightness(1.3);
+    }
+
+    .csd-dot-close {
+      background: #ff5f57;
+    }
+
+    .csd-dot-min {
+      background: #ffbd2e;
+    }
+
+    .csd-dot-max {
+      background: #28c840;
+    }
+
     .csd-chrome-url {
       flex: 1;
       display: flex;
       align-items: center;
       gap: 7px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.09);
       border-radius: 6px;
       padding: 4px 11px;
       font-family: var(--font-mono);
@@ -2580,14 +2673,35 @@
       overflow: hidden;
       white-space: nowrap;
     }
+
     body.light .csd-chrome-url {
-      background: rgba(0,0,0,0.05);
-      border-color: rgba(0,0,0,0.1);
+      background: rgba(0, 0, 0, 0.05);
+      border-color: rgba(0, 0, 0, 0.1);
       color: #555;
     }
-    .csd-url-lock { color: #3fb950; font-size: 0.62rem; flex-shrink:0; }
-    .csd-url-text { overflow: hidden; text-overflow: ellipsis; flex: 1; }
-    .csd-chrome-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; position: relative; z-index: 20; pointer-events: all; }
+
+    .csd-url-lock {
+      color: #3fb950;
+      font-size: 0.62rem;
+      flex-shrink: 0;
+    }
+
+    .csd-url-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+    }
+
+    .csd-chrome-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 20;
+      pointer-events: all;
+    }
+
     .csd-ext-btn {
       color: #8b949e;
       font-size: 0.75rem;
@@ -2600,16 +2714,25 @@
       z-index: 20;
       padding: 4px 6px;
     }
-    .csd-ext-btn:hover { color: var(--accent); }
+
+    .csd-ext-btn:hover {
+      color: var(--accent);
+    }
+
     .csd-tabbar {
       display: flex;
       background: #0d1117;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
       padding: 0 10px;
       flex-shrink: 0;
       overflow: hidden;
     }
-    body.light .csd-tabbar { background: #e8ecf0; border-color: rgba(0,0,0,0.08); }
+
+    body.light .csd-tabbar {
+      background: #e8ecf0;
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+
     .csd-tab {
       display: flex;
       align-items: center;
@@ -2621,14 +2744,26 @@
       white-space: nowrap;
       border-radius: 6px 6px 0 0;
     }
+
     .csd-tab.active {
       color: #e6edf3;
-      background: rgba(255,255,255,0.03);
+      background: rgba(255, 255, 255, 0.03);
       border-bottom-color: var(--accent);
     }
-    .csd-tab.active.thm-tab { border-bottom-color: var(--accent-2); }
-    .csd-tab.active.lc-tab  { border-bottom-color: #ffa116; }
-    body.light .csd-tab.active { color: #111; background: rgba(0,0,0,0.04); }
+
+    .csd-tab.active.thm-tab {
+      border-bottom-color: var(--accent-2);
+    }
+
+    .csd-tab.active.lc-tab {
+      border-bottom-color: #ffa116;
+    }
+
+    body.light .csd-tab.active {
+      color: #111;
+      background: rgba(0, 0, 0, 0.04);
+    }
+
     .csd-content {
       flex: 1;
       overflow-y: auto;
@@ -2638,10 +2773,25 @@
       font-size: 0.84rem;
       color: #e6edf3;
     }
-    body.light .csd-content { background: #f0f2f5; color: #111; }
-    .csd-content::-webkit-scrollbar { width: 5px; }
-    .csd-content::-webkit-scrollbar-track { background: transparent; }
-    .csd-content::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+
+    body.light .csd-content {
+      background: #f0f2f5;
+      color: #111;
+    }
+
+    .csd-content::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .csd-content::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .csd-content::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
     .csd-vscreen-title-hint {
       text-align: center;
       font-size: 0.78rem;
@@ -2650,159 +2800,495 @@
       font-family: var(--font-mono);
       letter-spacing: 0.5px;
     }
+
     .ghv-header {
-      display: flex; align-items: center; gap: 18px;
-      margin-bottom: 22px; padding-bottom: 18px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     }
+
     .ghv-avatar {
-      width: 68px; height: 68px; border-radius: 50%;
-      border: 2px solid #3fb950; object-fit: cover; flex-shrink: 0;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      border: 2px solid #3fb950;
+      object-fit: cover;
+      flex-shrink: 0;
     }
-    .ghv-name { font-size: 1.15rem; font-weight: 700; color: #e6edf3; margin-bottom: 3px; }
-    body.light .ghv-name { color: #111; }
-    .ghv-bio { font-size: 0.78rem; color: #8b949e; font-family:'Inter',sans-serif; line-height: 1.5; }
+
+    .ghv-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #e6edf3;
+      margin-bottom: 3px;
+    }
+
+    body.light .ghv-name {
+      color: #111;
+    }
+
+    .ghv-bio {
+      font-size: 0.78rem;
+      color: #8b949e;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+    }
+
     .ghv-chips {
-      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
     }
+
     .ghv-chip {
-      flex: 1; min-width: 80px;
-      background: rgba(48,54,61,0.9);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 9px; padding: 10px 12px; text-align: center;
+      flex: 1;
+      min-width: 80px;
+      background: rgba(48, 54, 61, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 9px;
+      padding: 10px 12px;
+      text-align: center;
     }
-    body.light .ghv-chip { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.1); }
-    .ghv-chip-val { font-size: 1.4rem; font-weight: 700; color: #3fb950; display: block; }
-    .ghv-chip-lbl { font-size: 0.68rem; color: #8b949e; margin-top: 2px; }
+
+    body.light .ghv-chip {
+      background: rgba(0, 0, 0, 0.05);
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .ghv-chip-val {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #3fb950;
+      display: block;
+    }
+
+    .ghv-chip-lbl {
+      font-size: 0.68rem;
+      color: #8b949e;
+      margin-top: 2px;
+    }
+
     .ghv-graph-lbl {
-      font-size: 0.72rem; color: #8b949e; margin-bottom: 8px;
-      display: flex; align-items: center; gap: 6px;
+      font-size: 0.72rem;
+      color: #8b949e;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .ghv-graph-img { width: 100%; border-radius: 7px; }
+
+    .ghv-graph-img {
+      width: 100%;
+      border-radius: 7px;
+    }
+
     /* ── Activity Dot-Matrix Grid ── */
     .activity-grid-wrap {
       margin-top: 16px;
     }
+
     .activity-grid-lbl {
-      font-size: 0.72rem; color: #8b949e; margin-bottom: 8px;
-      display: flex; align-items: center; gap: 6px; font-family: var(--font-mono);
-      text-transform: uppercase; letter-spacing: 0.8px;
+      font-size: 0.72rem;
+      color: #8b949e;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
     }
-    .activity-grid-lbl .online-indicator { flex-shrink: 0; }
+
+    .activity-grid-lbl .online-indicator {
+      flex-shrink: 0;
+    }
+
     .activity-canvas {
-      width: 100%; height: auto; display: block;
+      width: 100%;
+      height: auto;
+      display: block;
       border-radius: 6px;
       image-rendering: pixelated;
     }
+
     .activity-month-row {
-      display: flex; justify-content: space-between;
+      display: flex;
+      justify-content: space-between;
       margin-bottom: 4px;
     }
+
     .activity-month-row span {
-      font-size: 0.6rem; color: #8b949e; font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: #8b949e;
+      font-family: var(--font-mono);
     }
+
     .thmv-header {
-      display: flex; align-items: flex-start; gap: 18px;
-      margin-bottom: 22px; padding-bottom: 18px;
-      border-bottom: 1px solid rgba(167,139,250,0.15);
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(167, 139, 250, 0.15);
     }
+
     .thmv-rank-box {
-      background: linear-gradient(135deg,rgba(167,139,250,0.15),rgba(96,165,250,0.07));
-      border: 1px solid rgba(167,139,250,0.3);
-      border-radius: 12px; padding: 14px 18px; text-align: center; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.15), rgba(96, 165, 250, 0.07));
+      border: 1px solid rgba(167, 139, 250, 0.3);
+      border-radius: 12px;
+      padding: 14px 18px;
+      text-align: center;
+      flex-shrink: 0;
     }
-    .thmv-rank-val { font-size: 1.6rem; font-weight: 800; color: var(--accent-2); }
-    .thmv-rank-sub { font-size: 0.62rem; color: #8b949e; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
-    .thmv-name { font-size: 1.1rem; font-weight: 700; color: #e6edf3; margin-bottom: 4px; }
-    body.light .thmv-name { color: #111; }
-    .thmv-lvl { font-size: 0.8rem; color: var(--accent-2); margin-bottom: 4px; }
-    .thmv-sub { font-size: 0.74rem; color: #8b949e; font-family:'Inter',sans-serif; }
+
+    .thmv-rank-val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--accent-2);
+    }
+
+    .thmv-rank-sub {
+      font-size: 0.62rem;
+      color: #8b949e;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    .thmv-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #e6edf3;
+      margin-bottom: 4px;
+    }
+
+    body.light .thmv-name {
+      color: #111;
+    }
+
+    .thmv-lvl {
+      font-size: 0.8rem;
+      color: var(--accent-2);
+      margin-bottom: 4px;
+    }
+
+    .thmv-sub {
+      font-size: 0.74rem;
+      color: #8b949e;
+      font-family: 'Inter', sans-serif;
+    }
+
     .thmv-chips {
-      display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
     }
+
     .thmv-chip {
-      background: rgba(20,24,36,0.85);
-      border: 1px solid rgba(167,139,250,0.18);
-      border-radius: 9px; padding: 12px 8px; text-align: center;
+      background: rgba(20, 24, 36, 0.85);
+      border: 1px solid rgba(167, 139, 250, 0.18);
+      border-radius: 9px;
+      padding: 12px 8px;
+      text-align: center;
     }
-    body.light .thmv-chip { background: rgba(0,0,0,0.04); }
-    .thmv-chip-val { font-size: 1.2rem; font-weight: 700; color: var(--accent-2); display: block; }
-    .thmv-chip-lbl { font-size: 0.66rem; color: #8b949e; margin-top: 3px; }
-    .thmv-pts-lbl { font-size: 0.68rem; color: #8b949e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
-    .thmv-pts-val { font-size: 2.2rem; font-weight: 800; color: var(--accent-2); margin-bottom: 10px; }
+
+    body.light .thmv-chip {
+      background: rgba(0, 0, 0, 0.04);
+    }
+
+    .thmv-chip-val {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent-2);
+      display: block;
+    }
+
+    .thmv-chip-lbl {
+      font-size: 0.66rem;
+      color: #8b949e;
+      margin-top: 3px;
+    }
+
+    .thmv-pts-lbl {
+      font-size: 0.68rem;
+      color: #8b949e;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    .thmv-pts-val {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-2);
+      margin-bottom: 10px;
+    }
+
     .thmv-prog-track {
-      background: rgba(255,255,255,0.06); border-radius: 6px; height: 7px; overflow: hidden; margin-bottom: 5px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 6px;
+      height: 7px;
+      overflow: hidden;
+      margin-bottom: 5px;
     }
+
     .thmv-prog-fill {
-      height: 100%; border-radius: 6px; width: 0;
-      background: linear-gradient(90deg,var(--accent-2),var(--accent));
-      transition: width 1.3s cubic-bezier(0.4,0,0.2,1);
+      height: 100%;
+      border-radius: 6px;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent-2), var(--accent));
+      transition: width 1.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .thmv-prog-sub { font-size: 0.68rem; color: #8b949e; font-family:'Inter',sans-serif; }
-    .thmv-badges { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+
+    .thmv-prog-sub {
+      font-size: 0.68rem;
+      color: #8b949e;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .thmv-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
     .thmv-badge {
-      background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.22);
-      border-radius: 7px; padding: 7px 13px; font-size: 0.73rem; color: var(--accent-2);
-      display: flex; align-items: center; gap: 6px;
+      background: rgba(167, 139, 250, 0.1);
+      border: 1px solid rgba(167, 139, 250, 0.22);
+      border-radius: 7px;
+      padding: 7px 13px;
+      font-size: 0.73rem;
+      color: var(--accent-2);
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
+
     .lcv-header {
-      display: flex; align-items: center; gap: 18px;
-      margin-bottom: 22px; padding-bottom: 18px;
-      border-bottom: 1px solid rgba(255,161,22,0.15);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255, 161, 22, 0.15);
     }
+
     .lcv-avatar {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: linear-gradient(135deg,#ffa116,rgba(255,161,22,0.15));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.7rem; flex-shrink: 0;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ffa116, rgba(255, 161, 22, 0.15));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      flex-shrink: 0;
     }
-    .lcv-name { font-size: 1.1rem; font-weight: 700; color: #e6edf3; margin-bottom: 4px; }
-    body.light .lcv-name { color: #111; }
-    .lcv-rank { font-size: 0.8rem; color: #ffa116; }
+
+    .lcv-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #e6edf3;
+      margin-bottom: 4px;
+    }
+
+    body.light .lcv-name {
+      color: #111;
+    }
+
+    .lcv-rank {
+      font-size: 0.8rem;
+      color: #ffa116;
+    }
+
     .lcv-donut-row {
-      display: flex; align-items: center; gap: 28px; margin-bottom: 22px; flex-wrap: wrap;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
     }
-    .lcv-donut-wrap { position: relative; width: 140px; height: 140px; flex-shrink: 0; }
-    .lcv-donut-svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+
+    .lcv-donut-wrap {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      flex-shrink: 0;
+    }
+
+    .lcv-donut-svg {
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
+
     .lcv-donut-center {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
-    .lcv-donut-num { font-size: 1.7rem; font-weight: 800; color: #e6edf3; }
-    body.light .lcv-donut-num { color: #111; }
-    .lcv-donut-lbl { font-size: 0.62rem; color: #8b949e; margin-top: 2px; }
-    .lcv-diffs { flex: 1; }
-    .lcv-diff-row { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
-    .lcv-diff-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
-    .lcv-diff-dot.e { background: #00b8a3; }
-    .lcv-diff-dot.m { background: #ffc01e; }
-    .lcv-diff-dot.h { background: #ef4743; }
-    .lcv-diff-name { font-size: 0.76rem; color: #8b949e; width: 52px; }
-    .lcv-diff-val  { font-size: 0.83rem; font-weight: 600; color: #e6edf3; width: 36px; }
-    body.light .lcv-diff-val { color: #111; }
+
+    .lcv-donut-num {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #e6edf3;
+    }
+
+    body.light .lcv-donut-num {
+      color: #111;
+    }
+
+    .lcv-donut-lbl {
+      font-size: 0.62rem;
+      color: #8b949e;
+      margin-top: 2px;
+    }
+
+    .lcv-diffs {
+      flex: 1;
+    }
+
+    .lcv-diff-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 12px;
+    }
+
+    .lcv-diff-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .lcv-diff-dot.e {
+      background: #00b8a3;
+    }
+
+    .lcv-diff-dot.m {
+      background: #ffc01e;
+    }
+
+    .lcv-diff-dot.h {
+      background: #ef4743;
+    }
+
+    .lcv-diff-name {
+      font-size: 0.76rem;
+      color: #8b949e;
+      width: 52px;
+    }
+
+    .lcv-diff-val {
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: #e6edf3;
+      width: 36px;
+    }
+
+    body.light .lcv-diff-val {
+      color: #111;
+    }
+
     .lcv-diff-track {
-      flex: 1; height: 5px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden;
+      flex: 1;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 3px;
+      overflow: hidden;
     }
-    body.light .lcv-diff-track { background: rgba(0,0,0,0.06); }
-    .lcv-diff-fill { height: 100%; border-radius: 3px; width: 0; transition: width 1.3s ease; }
-    .lcv-diff-fill.e { background: #00b8a3; }
-    .lcv-diff-fill.m { background: #ffc01e; }
-    .lcv-diff-fill.h { background: #ef4743; }
-    .lcv-rating-row { display: grid; grid-template-columns: repeat(2,1fr); gap: 11px; }
+
+    body.light .lcv-diff-track {
+      background: rgba(0, 0, 0, 0.06);
+    }
+
+    .lcv-diff-fill {
+      height: 100%;
+      border-radius: 3px;
+      width: 0;
+      transition: width 1.3s ease;
+    }
+
+    .lcv-diff-fill.e {
+      background: #00b8a3;
+    }
+
+    .lcv-diff-fill.m {
+      background: #ffc01e;
+    }
+
+    .lcv-diff-fill.h {
+      background: #ef4743;
+    }
+
+    .lcv-rating-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 11px;
+    }
+
     .lcv-rating-card {
-      background: rgba(255,161,22,0.06); border: 1px solid rgba(255,161,22,0.18);
-      border-radius: 9px; padding: 13px 16px;
+      background: rgba(255, 161, 22, 0.06);
+      border: 1px solid rgba(255, 161, 22, 0.18);
+      border-radius: 9px;
+      padding: 13px 16px;
     }
-    body.light .lcv-rating-card { background: rgba(255,161,22,0.04); }
-    .lcv-rating-lbl { font-size: 0.66rem; color: #8b949e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
-    .lcv-rating-val { font-size: 1.25rem; font-weight: 700; color: #ffa116; }
+
+    body.light .lcv-rating-card {
+      background: rgba(255, 161, 22, 0.04);
+    }
+
+    .lcv-rating-lbl {
+      font-size: 0.66rem;
+      color: #8b949e;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .lcv-rating-val {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffa116;
+    }
+
     @media (max-width: 768px) {
-      .csd-tiles-row { flex-direction: column; align-items: center; }
-      .csd-tile { width: 100%; max-width: 360px; }
-      .csd-vscreen { width: 97vw; height: 92vh; }
-      .thmv-chips { grid-template-columns: repeat(2,1fr); }
-      .lcv-donut-row { justify-content: center; }
-      .lcv-rating-row { grid-template-columns: 1fr; }
+      .csd-tiles-row {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .csd-tile {
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .csd-vscreen {
+        width: 97vw;
+        height: 92vh;
+      }
+
+      .thmv-chips {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .lcv-donut-row {
+        justify-content: center;
+      }
+
+      .lcv-rating-row {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -2923,7 +3409,9 @@
         <div class="project-content">
           <span class="threat-badge utility">UTILITY</span>
           <div class="project-title">Airline Reservation System</div>
-          <div class="project-desc">A desktop flight booking application built with Python, PyQt5 and SQLite. Features user authentication, seat selection, booking management, and a full admin panel — no internet required.</div>
+          <div class="project-desc">A desktop flight booking application built with Python, PyQt5 and SQLite. Features
+            user authentication, seat selection, booking management, and a full admin panel — no internet required.
+          </div>
           <div class="tech-stack">
             <span class="tech-tag">Python</span>
             <span class="tech-tag">PyQt</span>
@@ -2931,8 +3419,8 @@
             <span class="tech-tag">SQLite</span>
           </div>
           <div class="project-links">
-            <a href="https://github.com/m4verick0304/airline_reservation_system" target="_blank" rel="noopener noreferrer"
-              class="btn-outline"><i class="fa-brands fa-github"></i> View Repo</a>
+            <a href="https://github.com/m4verick0304/airline_reservation_system" target="_blank"
+              rel="noopener noreferrer" class="btn-outline"><i class="fa-brands fa-github"></i> View Repo</a>
           </div>
         </div>
       </div>
@@ -2977,7 +3465,8 @@
             <span class="tech-tag">SQL</span>
           </div>
           <div class="project-links">
-            <span class="btn-outline" style="opacity:0.45; cursor:not-allowed; pointer-events:none;"><i class="fa-solid fa-code-branch"></i> Repo Coming Soon</span>
+            <span class="btn-outline" style="opacity:0.45; cursor:not-allowed; pointer-events:none;"><i
+                class="fa-solid fa-code-branch"></i> Repo Coming Soon</span>
           </div>
         </div>
       </div>
@@ -3103,8 +3592,7 @@
         <span class="cert-status status-certified">2025</span>
         <h3>Android Bug Bounty</h3>
         <p style="color: var(--secondary); font-size: 0.9rem;">EC-COUNCIL</p>
-        <button class="cert-cred-btn"
-          onclick="openCredModal('Android Bug Bounty','EC-Council','🛡️','ec-council.pdf')">
+        <button class="cert-cred-btn" onclick="openCredModal('Android Bug Bounty','EC-Council','🛡️','ec-council.pdf')">
           <i class="fa-solid fa-id-badge"></i> Show Credential
         </button>
       </div>
@@ -3178,7 +3666,8 @@
           <span class="time-tag">2025</span>
           <div class="role">Rank #6 in LeetCode Weekly Contest</div>
           <div class="org">Personal Merit</div>
-          <p style="color: var(--secondary);">Secured #6 rank globally in the LeetCode Weekly Contest (Virtual contest rank — separate from overall platform rank).
+          <p style="color: var(--secondary);">Secured #6 rank globally in the LeetCode Weekly Contest (Virtual contest
+            rank — separate from overall platform rank).
             Currently hold a LeetCode Global Rank of 1,954,335.</p>
         </div>
       </div>
@@ -3227,7 +3716,8 @@
 
     <div class="csd-tiles-row">
 
-      <div class="csd-tile stagger-scale" data-platform="github" id="csd-tile-github" role="button" tabindex="0" aria-label="Open GitHub stats">
+      <div class="csd-tile stagger-scale" data-platform="github" id="csd-tile-github" role="button" tabindex="0"
+        aria-label="Open GitHub stats">
         <div class="csd-tile-bg"></div>
         <span class="csd-tile-icon"><i class="fa-brands fa-github"></i></span>
         <div class="csd-tile-name">GitHub</div>
@@ -3238,7 +3728,8 @@
         </div>
       </div>
 
-      <div class="csd-tile stagger-scale" data-platform="tryhackme" id="csd-tile-tryhackme" role="button" tabindex="0" aria-label="Open TryHackMe stats">
+      <div class="csd-tile stagger-scale" data-platform="tryhackme" id="csd-tile-tryhackme" role="button" tabindex="0"
+        aria-label="Open TryHackMe stats">
         <div class="csd-tile-bg"></div>
         <span class="csd-tile-icon"><i class="fa-solid fa-skull-crossbones"></i></span>
         <div class="csd-tile-name">TryHackMe</div>
@@ -3249,7 +3740,8 @@
         </div>
       </div>
 
-      <div class="csd-tile stagger-scale" data-platform="leetcode" id="csd-tile-leetcode" role="button" tabindex="0" aria-label="Open LeetCode stats">
+      <div class="csd-tile stagger-scale" data-platform="leetcode" id="csd-tile-leetcode" role="button" tabindex="0"
+        aria-label="Open LeetCode stats">
         <div class="csd-tile-bg"></div>
         <span class="csd-tile-icon"><i class="fa-solid fa-code"></i></span>
         <div class="csd-tile-name">LeetCode</div>
@@ -3277,7 +3769,9 @@
         </div>
         <div class="csd-chrome-right">
           <i class="fa-solid fa-arrow-rotate-right" style="color:#8b949e;font-size:0.75rem;opacity:0.5;"></i>
-          <a class="csd-ext-btn" id="csdExtLink" href="https://github.com/m4verick0304" target="_blank" rel="noopener noreferrer" title="Open in new tab" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <a class="csd-ext-btn" id="csdExtLink" href="https://github.com/m4verick0304" target="_blank"
+            rel="noopener noreferrer" title="Open in new tab" onclick="event.stopPropagation()"><i
+              class="fa-solid fa-arrow-up-right-from-square"></i></a>
         </div>
       </div>
       <div class="csd-tabbar">
@@ -3552,27 +4046,27 @@
           if (p) p.textContent = cached.data.repos + ' repos  ·  ' + cached.data.followers + ' followers';
           return;
         }
-      } catch(_) {}
+      } catch (_) { }
       try {
         const res = await fetch('https://api.github.com/users/m4verick0304');
         if (!res.ok) throw new Error('rate-limited');
         const data = await res.json();
-        _csdData.github.repos     = data.public_repos || '0';
-        _csdData.github.followers = data.followers    || '0';
-        _csdData.github.joined    = new Date(data.created_at).getFullYear();
+        _csdData.github.repos = data.public_repos || '0';
+        _csdData.github.followers = data.followers || '0';
+        _csdData.github.joined = new Date(data.created_at).getFullYear();
         try {
-          const evRes  = await fetch('https://api.github.com/users/m4verick0304/events?per_page=100');
+          const evRes = await fetch('https://api.github.com/users/m4verick0304/events?per_page=100');
           const events = await evRes.json();
           const pushes = events.filter(e => e.type === 'PushEvent');
-          const cnt    = pushes.reduce((s,e) => s + (e.payload.commits ? e.payload.commits.length : 0), 0);
+          const cnt = pushes.reduce((s, e) => s + (e.payload.commits ? e.payload.commits.length : 0), 0);
           _csdData.github.contribs = cnt > 0 ? cnt + '+' : '100+';
-        } catch(_) { _csdData.github.contribs = '100+'; }
+        } catch (_) { _csdData.github.contribs = '100+'; }
         try {
           localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), data: _csdData.github }));
-        } catch(_) {}
+        } catch (_) { }
         const p = document.getElementById('csd-gh-preview');
         if (p) p.textContent = _csdData.github.repos + ' repos  ·  ' + _csdData.github.followers + ' followers';
-      } catch(e) {
+      } catch (e) {
         const p = document.getElementById('csd-gh-preview');
         if (p) p.textContent = '15+ repos  ·  check GitHub';
       }
@@ -3591,24 +4085,24 @@
         );
         if (res.ok) {
           const data = await res.json();
-          _csdData.leetcode.solved  = data.solvedProblem || '0';
-          _csdData.leetcode.easy    = data.easySolved    || '0';
-          _csdData.leetcode.medium  = data.mediumSolved  || '0';
-          _csdData.leetcode.hard    = data.hardSolved    || '0';
+          _csdData.leetcode.solved = data.solvedProblem || '0';
+          _csdData.leetcode.easy = data.easySolved || '0';
+          _csdData.leetcode.medium = data.mediumSolved || '0';
+          _csdData.leetcode.hard = data.hardSolved || '0';
         }
         try {
-          const rRes  = await withTimeout(
+          const rRes = await withTimeout(
             fetch('https://alfa-leetcode-api.onrender.com/shubhamgupta03/contest'), 8000
           );
           if (rRes.ok) {
-            const rData  = await rRes.json();
+            const rData = await rRes.json();
             const rating = Math.round(rData.contestRating || 0);
             _csdData.leetcode.rating = rating > 0 ? rating : '--';
           }
-        } catch(_) {}
+        } catch (_) { }
         const p = document.getElementById('csd-lc-preview');
         if (p) p.textContent = _csdData.leetcode.solved + ' solved  ·  rating: ' + _csdData.leetcode.rating;
-      } catch(e) {
+      } catch (e) {
         // Graceful fallback — show static values so tile is never stuck on "loading..."
         const p = document.getElementById('csd-lc-preview');
         if (p) p.textContent = 'view profile on LeetCode';
@@ -4017,388 +4511,391 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script>
-  (function(){
-    'use strict';
+    (function () {
+      'use strict';
 
-    const PLATFORMS = {
-      github: {
-        url:      'github.com/m4verick0304',
-        extLink:  'https://github.com/m4verick0304',
-        tabIcon:  'fa-brands fa-github',
-        tabLabel: 'm4verick0304 — GitHub',
-        tabClass: '',
-        accentColor: '#3fb950',
-        renderHTML: function() {
-          const d = (window._csdData && window._csdData.github) || {};
-          const repos     = d.repos     || '--';
-          const followers = d.followers || '--';
-          const contribs  = d.contribs  || '100+';
-          const joined    = d.joined    || '--';
-          return [
-            '<div class="ghv-header">',
+      const PLATFORMS = {
+        github: {
+          url: 'github.com/m4verick0304',
+          extLink: 'https://github.com/m4verick0304',
+          tabIcon: 'fa-brands fa-github',
+          tabLabel: 'm4verick0304 — GitHub',
+          tabClass: '',
+          accentColor: '#3fb950',
+          renderHTML: function () {
+            const d = (window._csdData && window._csdData.github) || {};
+            const repos = d.repos || '--';
+            const followers = d.followers || '--';
+            const contribs = d.contribs || '100+';
+            const joined = d.joined || '--';
+            return [
+              '<div class="ghv-header">',
               '<img class="ghv-avatar" src="https://github.com/m4verick0304.png" onerror="this.src=\'https://github.com/identicons/m4verick0304.png\'" alt="avatar">',
               '<div>',
-                '<div class="ghv-name">m4verick0304</div>',
-                '<div class="ghv-bio">B.Tech CSE &nbsp;|&nbsp; Cybersecurity &amp; Python Developer<br>Building practical security tools &amp; competing in CTFs</div>',
+              '<div class="ghv-name">m4verick0304</div>',
+              '<div class="ghv-bio">B.Tech CSE &nbsp;|&nbsp; Cybersecurity &amp; Python Developer<br>Building practical security tools &amp; competing in CTFs</div>',
               '</div>',
-            '</div>',
-            '<div class="ghv-chips">',
-              '<div class="ghv-chip"><span class="ghv-chip-val" id="vs-gh-repos">'  +repos+     '</span><div class="ghv-chip-lbl">Repos</div></div>',
-              '<div class="ghv-chip"><span class="ghv-chip-val" id="vs-gh-foll">'  +followers+ '</span><div class="ghv-chip-lbl">Followers</div></div>',
-              '<div class="ghv-chip"><span class="ghv-chip-val" id="vs-gh-cont">'  +contribs+  '</span><div class="ghv-chip-lbl">Contribs</div></div>',
-              '<div class="ghv-chip"><span class="ghv-chip-val" id="vs-gh-join">'  +joined+    '</span><div class="ghv-chip-lbl">Joined</div></div>',
-            '</div>',
-            '<div class="ghv-graph-lbl"><span class="online-indicator"></span> CONTRIBUTION_MATRIX</div>',
-            '<div class="activity-month-row" id="ghMonthRow"></div>',
-            '<canvas class="activity-canvas" id="ghActivityGrid" height="112"></canvas>'
-          ].join('');
-        }
-      },
-      tryhackme: {
-        url:      'tryhackme.com/p/m4vE.rick',
-        extLink:  'https://tryhackme.com/p/m4vE.rick',
-        tabIcon:  'fa-solid fa-skull-crossbones',
-        tabLabel: 'm4vE.rick — TryHackMe',
-        tabClass: 'thm-tab',
-        accentColor: '#a78bfa',
-        renderHTML: function() {
-          return [
-            '<div class="thmv-header">',
+              '</div>',
+              '<div class="ghv-chips">',
+              '<div class="ghv-chip"><span class="ghv-chip-val" id="vs-gh-repos">' + repos + '</span><div class="ghv-chip-lbl">Repos</div></div>',
+              '<div class="ghv-chip"><span class="ghv-chip-val" id="vs-gh-foll">' + followers + '</span><div class="ghv-chip-lbl">Followers</div></div>',
+              '<div class="ghv-chip"><span class="ghv-chip-val" id="vs-gh-cont">' + contribs + '</span><div class="ghv-chip-lbl">Contribs</div></div>',
+              '<div class="ghv-chip"><span class="ghv-chip-val" id="vs-gh-join">' + joined + '</span><div class="ghv-chip-lbl">Joined</div></div>',
+              '</div>',
+              '<div class="ghv-graph-lbl"><span class="online-indicator"></span> CONTRIBUTION_MATRIX</div>',
+              '<div class="activity-month-row" id="ghMonthRow"></div>',
+              '<canvas class="activity-canvas" id="ghActivityGrid" height="112"></canvas>'
+            ].join('');
+          }
+        },
+        tryhackme: {
+          url: 'tryhackme.com/p/m4vE.rick',
+          extLink: 'https://tryhackme.com/p/m4vE.rick',
+          tabIcon: 'fa-solid fa-skull-crossbones',
+          tabLabel: 'm4vE.rick — TryHackMe',
+          tabClass: 'thm-tab',
+          accentColor: '#a78bfa',
+          renderHTML: function () {
+            return [
+              '<div class="thmv-header">',
               '<div class="thmv-rank-box"><div class="thmv-rank-val">Top 10%</div><div class="thmv-rank-sub">Global Rank</div></div>',
               '<div>',
-                '<div class="thmv-name">m4vE.rick</div>',
-                '<div class="thmv-lvl"><i class="fa-solid fa-shield-halved"></i>&nbsp; Hacker Level</div>',
-                '<div class="thmv-sub">Actively rooting machines &amp; solving rooms</div>',
+              '<div class="thmv-name">m4vE.rick</div>',
+              '<div class="thmv-lvl"><i class="fa-solid fa-shield-halved"></i>&nbsp; Hacker Level</div>',
+              '<div class="thmv-sub">Actively rooting machines &amp; solving rooms</div>',
               '</div>',
-            '</div>',
-            '<div class="thmv-chips">',
+              '</div>',
+              '<div class="thmv-chips">',
               '<div class="thmv-chip"><span class="thmv-chip-val">25+</span><div class="thmv-chip-lbl"><i class="fa-solid fa-door-open"></i> Rooms</div></div>',
               '<div class="thmv-chip"><span class="thmv-chip-val">5</span><div class="thmv-chip-lbl"><i class="fa-solid fa-medal"></i> Badges</div></div>',
               '<div class="thmv-chip"><span class="thmv-chip-val">10</span><div class="thmv-chip-lbl"><i class="fa-solid fa-fire"></i> Streak</div></div>',
               '<div class="thmv-chip"><span class="thmv-chip-val">3</span><div class="thmv-chip-lbl"><i class="fa-solid fa-flag"></i> Flags</div></div>',
-            '</div>',
-            '<div class="thmv-pts-lbl">TOTAL POINTS</div>',
-            '<div class="thmv-pts-val">5,000+</div>',
-            '<div class="thmv-prog-track"><div class="thmv-prog-fill" id="thmProgFill"></div></div>',
-            '<div class="thmv-prog-sub">Progress toward next level</div>',
-            '<div class="thmv-badges">',
+              '</div>',
+              '<div class="thmv-pts-lbl">TOTAL POINTS</div>',
+              '<div class="thmv-pts-val">5,000+</div>',
+              '<div class="thmv-prog-track"><div class="thmv-prog-fill" id="thmProgFill"></div></div>',
+              '<div class="thmv-prog-sub">Progress toward next level</div>',
+              '<div class="thmv-badges">',
               '<div class="thmv-badge"><i class="fa-solid fa-network-wired"></i> Networking</div>',
               '<div class="thmv-badge"><i class="fa-solid fa-terminal"></i> Linux</div>',
               '<div class="thmv-badge"><i class="fa-solid fa-lock"></i> Crypto</div>',
               '<div class="thmv-badge"><i class="fa-solid fa-bug"></i> Web Hacking</div>',
               '<div class="thmv-badge"><i class="fa-solid fa-magnifying-glass"></i> OSINT</div>',
-            '</div>',
-            '<div class="activity-grid-wrap">',
+              '</div>',
+              '<div class="activity-grid-wrap">',
               '<div class="activity-grid-lbl"><span class="online-indicator" style="background:#a78bfa;box-shadow:0 0 8px #a78bfa;"></span> ACTIVITY_MATRIX</div>',
               '<div class="activity-month-row" id="thmMonthRow"></div>',
               '<canvas class="activity-canvas" id="thmActivityGrid" height="112"></canvas>',
-            '</div>'
-          ].join('');
-        }
-      },
-      leetcode: {
-        url:      'leetcode.com/u/shubhamgupta03',
-        extLink:  'https://leetcode.com/u/shubhamgupta03/',
-        tabIcon:  'fa-solid fa-code',
-        tabLabel: 'shubhamgupta03 — LeetCode',
-        tabClass: 'lc-tab',
-        accentColor: '#ffa116',
-        renderHTML: function() {
-          const d = (window._csdData && window._csdData.leetcode) || {};
-          const solved = parseInt(d.solved)  || 0;
-          const easy   = parseInt(d.easy)    || 0;
-          const medium = parseInt(d.medium)  || 0;
-          const hard   = parseInt(d.hard)    || 0;
-          const rating = d.rating || '--';
-          const total  = 3000;
-          const epct   = easy   ? Math.round(easy   / 800  * 100) : 0;
-          const mpct   = medium ? Math.round(medium / 1600 * 100) : 0;
-          const hpct   = hard   ? Math.round(hard   / 600  * 100) : 0;
-          const r1 = 54, cx = 70, cy = 70;
-          const circumference = 2 * Math.PI * r1;
-          const filled = solved ? Math.round(solved / total * circumference) : 0;
-          return [
-            '<div class="lcv-header">',
+              '</div>'
+            ].join('');
+          }
+        },
+        leetcode: {
+          url: 'leetcode.com/u/shubhamgupta03',
+          extLink: 'https://leetcode.com/u/shubhamgupta03/',
+          tabIcon: 'fa-solid fa-code',
+          tabLabel: 'shubhamgupta03 — LeetCode',
+          tabClass: 'lc-tab',
+          accentColor: '#ffa116',
+          renderHTML: function () {
+            const d = (window._csdData && window._csdData.leetcode) || {};
+            const solved = parseInt(d.solved) || 0;
+            const easy = parseInt(d.easy) || 0;
+            const medium = parseInt(d.medium) || 0;
+            const hard = parseInt(d.hard) || 0;
+            const rating = d.rating || '--';
+            const total = 3000;
+            const epct = easy ? Math.round(easy / 800 * 100) : 0;
+            const mpct = medium ? Math.round(medium / 1600 * 100) : 0;
+            const hpct = hard ? Math.round(hard / 600 * 100) : 0;
+            const r1 = 54, cx = 70, cy = 70;
+            const circumference = 2 * Math.PI * r1;
+            const filled = solved ? Math.round(solved / total * circumference) : 0;
+            return [
+              '<div class="lcv-header">',
               '<div class="lcv-avatar">⚡</div>',
               '<div>',
-                '<div class="lcv-name">shubhamgupta03</div>',
-                '<div class="lcv-rank">Global Rank: 1,954,335</div>',
+              '<div class="lcv-name">shubhamgupta03</div>',
+              '<div class="lcv-rank">Global Rank: 1,954,335</div>',
               '</div>',
-            '</div>',
-            '<div class="lcv-donut-row">',
+              '</div>',
+              '<div class="lcv-donut-row">',
               '<div class="lcv-donut-wrap">',
-                '<svg class="lcv-donut-svg" viewBox="0 0 140 140">',
-                  '<circle cx="70" cy="70" r="'+r1+'" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="10"/>',
-                  '<circle id="lcDonutArc" cx="70" cy="70" r="'+r1+'" fill="none" stroke="#ffa116" stroke-width="10"',
-                    ' stroke-dasharray="0 '+circumference+'" stroke-linecap="round"',
-                    ' style="transition:stroke-dasharray 1.4s cubic-bezier(0.4,0,0.2,1)"/>',
-                '</svg>',
-                '<div class="lcv-donut-center">',
-                  '<div class="lcv-donut-num" id="lcDonutNum">'+(solved||'--')+'</div>',
-                  '<div class="lcv-donut-lbl">solved</div>',
-                '</div>',
+              '<svg class="lcv-donut-svg" viewBox="0 0 140 140">',
+              '<circle cx="70" cy="70" r="' + r1 + '" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="10"/>',
+              '<circle id="lcDonutArc" cx="70" cy="70" r="' + r1 + '" fill="none" stroke="#ffa116" stroke-width="10"',
+              ' stroke-dasharray="0 ' + circumference + '" stroke-linecap="round"',
+              ' style="transition:stroke-dasharray 1.4s cubic-bezier(0.4,0,0.2,1)"/>',
+              '</svg>',
+              '<div class="lcv-donut-center">',
+              '<div class="lcv-donut-num" id="lcDonutNum">' + (solved || '--') + '</div>',
+              '<div class="lcv-donut-lbl">solved</div>',
+              '</div>',
               '</div>',
               '<div class="lcv-diffs">',
-                '<div class="lcv-diff-row"><span class="lcv-diff-dot e"></span><span class="lcv-diff-name">Easy</span><span class="lcv-diff-val">'+(easy||'--')+'</span><div class="lcv-diff-track"><div class="lcv-diff-fill e" id="lcBarE"></div></div></div>',
-                '<div class="lcv-diff-row"><span class="lcv-diff-dot m"></span><span class="lcv-diff-name">Medium</span><span class="lcv-diff-val">'+(medium||'--')+'</span><div class="lcv-diff-track"><div class="lcv-diff-fill m" id="lcBarM"></div></div></div>',
-                '<div class="lcv-diff-row"><span class="lcv-diff-dot h"></span><span class="lcv-diff-name">Hard</span><span class="lcv-diff-val">'+(hard||'--')+'</span><div class="lcv-diff-track"><div class="lcv-diff-fill h" id="lcBarH"></div></div></div>',
+              '<div class="lcv-diff-row"><span class="lcv-diff-dot e"></span><span class="lcv-diff-name">Easy</span><span class="lcv-diff-val">' + (easy || '--') + '</span><div class="lcv-diff-track"><div class="lcv-diff-fill e" id="lcBarE"></div></div></div>',
+              '<div class="lcv-diff-row"><span class="lcv-diff-dot m"></span><span class="lcv-diff-name">Medium</span><span class="lcv-diff-val">' + (medium || '--') + '</span><div class="lcv-diff-track"><div class="lcv-diff-fill m" id="lcBarM"></div></div></div>',
+              '<div class="lcv-diff-row"><span class="lcv-diff-dot h"></span><span class="lcv-diff-name">Hard</span><span class="lcv-diff-val">' + (hard || '--') + '</span><div class="lcv-diff-track"><div class="lcv-diff-fill h" id="lcBarH"></div></div></div>',
               '</div>',
-            '</div>',
-            '<div class="lcv-rating-row">',
-              '<div class="lcv-rating-card"><div class="lcv-rating-lbl">Contest Rating</div><div class="lcv-rating-val">'+rating+'</div></div>',
-              '<div class="lcv-rating-card"><div class="lcv-rating-lbl">Problems Solved</div><div class="lcv-rating-val">'+(solved||'--')+'</div></div>',
-              '<div class="lcv-rating-card"><div class="lcv-rating-lbl">Easy Solved</div><div class="lcv-rating-val">'+easy+'</div></div>',
-              '<div class="lcv-rating-card"><div class="lcv-rating-lbl">Hard Solved</div><div class="lcv-rating-val">'+hard+'</div></div>',
-            '</div>',
-            '<!-- lc-anim-placeholder -->',
-            '<div class="activity-grid-wrap">',
+              '</div>',
+              '<div class="lcv-rating-row">',
+              '<div class="lcv-rating-card"><div class="lcv-rating-lbl">Contest Rating</div><div class="lcv-rating-val">' + rating + '</div></div>',
+              '<div class="lcv-rating-card"><div class="lcv-rating-lbl">Problems Solved</div><div class="lcv-rating-val">' + (solved || '--') + '</div></div>',
+              '<div class="lcv-rating-card"><div class="lcv-rating-lbl">Easy Solved</div><div class="lcv-rating-val">' + easy + '</div></div>',
+              '<div class="lcv-rating-card"><div class="lcv-rating-lbl">Hard Solved</div><div class="lcv-rating-val">' + hard + '</div></div>',
+              '</div>',
+              '<!-- lc-anim-placeholder -->',
+              '<div class="activity-grid-wrap">',
               '<div class="activity-grid-lbl"><span class="online-indicator" style="background:#ffa116;box-shadow:0 0 8px #ffa116;"></span> SUBMISSION_MATRIX</div>',
               '<div class="activity-month-row" id="lcMonthRow"></div>',
               '<canvas class="activity-canvas" id="lcActivityGrid" height="112"></canvas>',
-            '</div>'
-          ].join('');
-        }
-      }
-    };
-
-    let activeplatform = null;
-    let openTimer = null;
-
-    const backdrop  = document.getElementById('csdBackdrop');
-    const vscreen   = document.getElementById('csdVscreen');
-    const closeBtn  = document.getElementById('csdClose');
-    const urlEl     = document.getElementById('csdUrl');
-    const extLink   = document.getElementById('csdExtLink');
-    const tabIcon   = document.getElementById('csdTabIcon');
-    const tabLabel  = document.getElementById('csdTabLabel');
-    const tabEl     = document.getElementById('csdTab');
-    const contentEl = document.getElementById('csdContent');
-
-    // ── Dot-Matrix Activity Grid ──────────────────────────────────────────
-    function drawActivityGrid(platform) {
-      var canvasId, monthRowId, colors;
-
-      if (platform === 'github') {
-        canvasId   = 'ghActivityGrid';
-        monthRowId = 'ghMonthRow';
-        colors     = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
-      } else if (platform === 'tryhackme') {
-        canvasId   = 'thmActivityGrid';
-        monthRowId = 'thmMonthRow';
-        colors     = ['#1a1a2e', '#2d1f4e', '#4a2f7a', '#7c3aed', '#a78bfa'];
-      } else {
-        canvasId   = 'lcActivityGrid';
-        monthRowId = 'lcMonthRow';
-        colors     = ['#1a1208', '#3d2a00', '#7a5200', '#cc8800', '#ffa116'];
-      }
-
-      var canvas = document.getElementById(canvasId);
-      var monthRow = document.getElementById(monthRowId);
-      if (!canvas) return;
-
-      var WEEKS = 52, DAYS = 7;
-      var CELL = 13, GAP = 3;
-      var W = WEEKS * (CELL + GAP) - GAP;
-      var H = DAYS  * (CELL + GAP) - GAP;
-      canvas.width  = W;
-      canvas.height = H;
-      var ctx = canvas.getContext('2d');
-
-      // Seeded LCG so pattern is deterministic per platform
-      var seed = 0;
-      for (var i = 0; i < platform.length; i++) seed = (seed * 31 + platform.charCodeAt(i)) & 0xffffffff;
-      function rand() {
-        seed = (seed * 1664525 + 1013904223) & 0xffffffff;
-        return (seed >>> 0) / 0xffffffff;
-      }
-
-      // Build 364-day activity array (index 0 = oldest, 363 = today)
-      var data = new Array(WEEKS * DAYS).fill(0);
-      var today = new Date();
-
-      for (var day = 0; day < WEEKS * DAYS; day++) {
-        var weeksAgo = Math.floor((WEEKS * DAYS - 1 - day) / DAYS);
-        // Bias: more activity in recent 12 weeks
-        var prob = weeksAgo < 12 ? 0.55 : (weeksAgo < 26 ? 0.3 : 0.15);
-        if (rand() < prob) {
-          var lvl = rand();
-          data[day] = lvl < 0.45 ? 1 : lvl < 0.72 ? 2 : lvl < 0.9 ? 3 : 4;
-        }
-      }
-
-      // Always mark today as active (level 3)
-      data[WEEKS * DAYS - 1] = Math.max(data[WEEKS * DAYS - 1], 3);
-
-      // Draw cells
-      ctx.clearRect(0, 0, W, H);
-      for (var w = 0; w < WEEKS; w++) {
-        for (var d = 0; d < DAYS; d++) {
-          var idx = w * DAYS + d;
-          var lvl = data[idx];
-          ctx.fillStyle = colors[lvl];
-          var rx = w * (CELL + GAP);
-          var ry = d * (CELL + GAP);
-          // Rounded rectangle
-          var r = 3;
-          ctx.beginPath();
-          ctx.moveTo(rx + r, ry);
-          ctx.lineTo(rx + CELL - r, ry);
-          ctx.quadraticCurveTo(rx + CELL, ry, rx + CELL, ry + r);
-          ctx.lineTo(rx + CELL, ry + CELL - r);
-          ctx.quadraticCurveTo(rx + CELL, ry + CELL, rx + CELL - r, ry + CELL);
-          ctx.lineTo(rx + r, ry + CELL);
-          ctx.quadraticCurveTo(rx, ry + CELL, rx, ry + CELL - r);
-          ctx.lineTo(rx, ry + r);
-          ctx.quadraticCurveTo(rx, ry, rx + r, ry);
-          ctx.closePath();
-          ctx.fill();
-        }
-      }
-
-      // Highlight today cell with a subtle white border
-      var todayW = WEEKS - 1, todayD = DAYS - 1;
-      var tx2 = todayW * (CELL + GAP), ty2 = todayD * (CELL + GAP);
-      ctx.strokeStyle = 'rgba(255,255,255,0.5)';
-      ctx.lineWidth = 1.5;
-      ctx.strokeRect(tx2 + 0.75, ty2 + 0.75, CELL - 1.5, CELL - 1.5);
-
-      // Month labels
-      if (monthRow) {
-        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-        var startDate = new Date(today);
-        startDate.setDate(startDate.getDate() - 363);
-        var html = '';
-        var lastMonth = -1;
-        for (var w2 = 0; w2 < WEEKS; w2++) {
-          var d2 = new Date(startDate);
-          d2.setDate(d2.getDate() + w2 * 7);
-          var mo = d2.getMonth();
-          if (mo !== lastMonth) {
-            lastMonth = mo;
-            var pct = (w2 / WEEKS * 100).toFixed(1);
-            html += '<span style="position:absolute;left:' + pct + '%">' + months[mo] + '</span>';
+              '</div>'
+            ].join('');
           }
         }
-        monthRow.style.position = 'relative';
-        monthRow.style.height   = '14px';
-        monthRow.innerHTML      = html;
-      }
-    }
-    // ─────────────────────────────────────────────────────────────────────
+      };
 
-    function openVscreen(platform, tileEl) {
-      if (activeplatform === platform) return;
-      activeplatform = platform;
+      let activeplatform = null;
+      let openTimer = null;
 
-      const cfg = PLATFORMS[platform];
-      urlEl.textContent     = cfg.url;
-      extLink.href          = cfg.extLink;
-      extLink.setAttribute('rel', 'noopener noreferrer');
-      tabIcon.className     = cfg.tabIcon;
-      tabLabel.textContent  = cfg.tabLabel;
-      tabEl.className       = 'csd-tab active ' + cfg.tabClass;
-      contentEl.innerHTML   = cfg.renderHTML();
+      const backdrop = document.getElementById('csdBackdrop');
+      const vscreen = document.getElementById('csdVscreen');
+      const closeBtn = document.getElementById('csdClose');
+      const urlEl = document.getElementById('csdUrl');
+      const extLink = document.getElementById('csdExtLink');
+      const tabIcon = document.getElementById('csdTabIcon');
+      const tabLabel = document.getElementById('csdTabLabel');
+      const tabEl = document.getElementById('csdTab');
+      const contentEl = document.getElementById('csdContent');
 
-      const rect  = tileEl.getBoundingClientRect();
-      const tx    = rect.left + rect.width  / 2 - window.innerWidth  / 2;
-      const ty    = rect.top  + rect.height / 2 - window.innerHeight / 2;
+      // ── Dot-Matrix Activity Grid ──────────────────────────────────────────
+      function drawActivityGrid(platform) {
+        var canvasId, monthRowId, colors;
 
-      backdrop.classList.add('csd-open');
-      vscreen.classList.add('csd-open');
+        if (platform === 'github') {
+          canvasId = 'ghActivityGrid';
+          monthRowId = 'ghMonthRow';
+          colors = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
+        } else if (platform === 'tryhackme') {
+          canvasId = 'thmActivityGrid';
+          monthRowId = 'thmMonthRow';
+          colors = ['#1a1a2e', '#2d1f4e', '#4a2f7a', '#7c3aed', '#a78bfa'];
+        } else {
+          canvasId = 'lcActivityGrid';
+          monthRowId = 'lcMonthRow';
+          colors = ['#1a1208', '#3d2a00', '#7a5200', '#cc8800', '#ffa116'];
+        }
 
-      if (typeof gsap !== 'undefined') {
-        gsap.fromTo(vscreen,
-          { x: tx, y: ty, scale: 0.08, opacity: 0, force3D: true },
-          { x: 0,  y: 0,  scale: 1,   opacity: 1, duration: 0.58, ease: 'power3.out' }
-        );
-        gsap.fromTo(backdrop, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'power2.out' });
-      } else {
-        vscreen.style.transform  = 'translate(-50%,-50%) scale(1)';
-        vscreen.style.opacity    = '1';
-      }
+        var canvas = document.getElementById(canvasId);
+        var monthRow = document.getElementById(monthRowId);
+        if (!canvas) return;
 
-      if (platform === 'tryhackme') {
-        requestAnimationFrame(function(){
-          var f = document.getElementById('thmProgFill');
-          if (f) setTimeout(function(){ f.style.width = '62%'; }, 120);
-        });
-      }
+        var WEEKS = 52, DAYS = 7;
+        var CELL = 13, GAP = 3;
+        var W = WEEKS * (CELL + GAP) - GAP;
+        var H = DAYS * (CELL + GAP) - GAP;
+        canvas.width = W;
+        canvas.height = H;
+        var ctx = canvas.getContext('2d');
 
-      // Animate LeetCode donut & bars
-      if (platform === 'leetcode') {
-        setTimeout(function(){
-          var arc = document.getElementById('lcDonutArc');
-          if (arc) {
-            var d = (window._csdData && window._csdData.leetcode) || {};
-            var solved = parseInt(d.solved) || 0;
-            var circumference = 2 * Math.PI * 54;
-            var filled = solved ? Math.round(solved / 3000 * circumference) : 0;
-            arc.style.strokeDasharray = filled + ' ' + (circumference - filled + 1);
+        // Seeded LCG so pattern is deterministic per platform
+        var seed = 0;
+        for (var i = 0; i < platform.length; i++) seed = (seed * 31 + platform.charCodeAt(i)) & 0xffffffff;
+        function rand() {
+          seed = (seed * 1664525 + 1013904223) & 0xffffffff;
+          return (seed >>> 0) / 0xffffffff;
+        }
+
+        // Build 364-day activity array (index 0 = oldest, 363 = today)
+        var data = new Array(WEEKS * DAYS).fill(0);
+        var today = new Date();
+
+        for (var day = 0; day < WEEKS * DAYS; day++) {
+          var weeksAgo = Math.floor((WEEKS * DAYS - 1 - day) / DAYS);
+          // Bias: more activity in recent 12 weeks
+          var prob = weeksAgo < 12 ? 0.55 : (weeksAgo < 26 ? 0.3 : 0.15);
+          if (rand() < prob) {
+            var lvl = rand();
+            data[day] = lvl < 0.45 ? 1 : lvl < 0.72 ? 2 : lvl < 0.9 ? 3 : 4;
           }
-          var easy   = parseInt((window._csdData && window._csdData.leetcode && window._csdData.leetcode.easy)   || 0);
-          var medium = parseInt((window._csdData && window._csdData.leetcode && window._csdData.leetcode.medium) || 0);
-          var hard   = parseInt((window._csdData && window._csdData.leetcode && window._csdData.leetcode.hard)   || 0);
-          var be = document.getElementById('lcBarE'); if (be) be.style.width = (easy   ? Math.round(easy   / 800  * 100) : 0) + '%';
-          var bm = document.getElementById('lcBarM'); if (bm) bm.style.width = (medium ? Math.round(medium / 1600 * 100) : 0) + '%';
-          var bh = document.getElementById('lcBarH'); if (bh) bh.style.width = (hard   ? Math.round(hard   / 600  * 100) : 0) + '%';
-        }, 120);
-      }
+        }
 
-      // Draw dot-matrix activity grids for all platforms
-      setTimeout(function() { drawActivityGrid(platform); }, 160);
+        // Always mark today as active (level 3)
+        data[WEEKS * DAYS - 1] = Math.max(data[WEEKS * DAYS - 1], 3);
 
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeVscreen() {
-      if (!activeplatform) return;
-      activeplatform = null;
-      document.body.style.overflow = '';
-
-      if (typeof gsap !== 'undefined') {
-        gsap.to(vscreen, { scale: 0.92, opacity: 0, y: 16, duration: 0.28, ease: 'power2.in',
-          onComplete: function() {
-            vscreen.classList.remove('csd-open');
-            gsap.set(vscreen, { clearProps: 'all' });
-            contentEl.innerHTML = '';
+        // Draw cells
+        ctx.clearRect(0, 0, W, H);
+        for (var w = 0; w < WEEKS; w++) {
+          for (var d = 0; d < DAYS; d++) {
+            var idx = w * DAYS + d;
+            var lvl = data[idx];
+            ctx.fillStyle = colors[lvl];
+            var rx = w * (CELL + GAP);
+            var ry = d * (CELL + GAP);
+            // Rounded rectangle
+            var r = 3;
+            ctx.beginPath();
+            ctx.moveTo(rx + r, ry);
+            ctx.lineTo(rx + CELL - r, ry);
+            ctx.quadraticCurveTo(rx + CELL, ry, rx + CELL, ry + r);
+            ctx.lineTo(rx + CELL, ry + CELL - r);
+            ctx.quadraticCurveTo(rx + CELL, ry + CELL, rx + CELL - r, ry + CELL);
+            ctx.lineTo(rx + r, ry + CELL);
+            ctx.quadraticCurveTo(rx, ry + CELL, rx, ry + CELL - r);
+            ctx.lineTo(rx, ry + r);
+            ctx.quadraticCurveTo(rx, ry, rx + r, ry);
+            ctx.closePath();
+            ctx.fill();
           }
-        });
-        gsap.to(backdrop, { opacity: 0, duration: 0.25, ease: 'power2.in',
-          onComplete: function() { backdrop.classList.remove('csd-open'); }
-        });
-      } else {
-        vscreen.classList.remove('csd-open');
-        backdrop.classList.remove('csd-open');
-        gsap && gsap.set(vscreen, { clearProps: 'all' });
-        contentEl.innerHTML = '';
-      }
-    }
+        }
 
-    document.querySelectorAll('.csd-tile').forEach(function(tile) {
-      tile.addEventListener('click', function() {
-        if (activeplatform === tile.dataset.platform) { closeVscreen(); return; }
-        openVscreen(tile.dataset.platform, tile);
+        // Highlight today cell with a subtle white border
+        var todayW = WEEKS - 1, todayD = DAYS - 1;
+        var tx2 = todayW * (CELL + GAP), ty2 = todayD * (CELL + GAP);
+        ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+        ctx.lineWidth = 1.5;
+        ctx.strokeRect(tx2 + 0.75, ty2 + 0.75, CELL - 1.5, CELL - 1.5);
+
+        // Month labels
+        if (monthRow) {
+          var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+          var startDate = new Date(today);
+          startDate.setDate(startDate.getDate() - 363);
+          var html = '';
+          var lastMonth = -1;
+          for (var w2 = 0; w2 < WEEKS; w2++) {
+            var d2 = new Date(startDate);
+            d2.setDate(d2.getDate() + w2 * 7);
+            var mo = d2.getMonth();
+            if (mo !== lastMonth) {
+              lastMonth = mo;
+              var pct = (w2 / WEEKS * 100).toFixed(1);
+              html += '<span style="position:absolute;left:' + pct + '%">' + months[mo] + '</span>';
+            }
+          }
+          monthRow.style.position = 'relative';
+          monthRow.style.height = '14px';
+          monthRow.innerHTML = html;
+        }
+      }
+      // ─────────────────────────────────────────────────────────────────────
+
+      function openVscreen(platform, tileEl) {
+        if (activeplatform === platform) return;
+        activeplatform = platform;
+
+        const cfg = PLATFORMS[platform];
+        urlEl.textContent = cfg.url;
+        extLink.href = cfg.extLink;
+        extLink.setAttribute('rel', 'noopener noreferrer');
+        tabIcon.className = cfg.tabIcon;
+        tabLabel.textContent = cfg.tabLabel;
+        tabEl.className = 'csd-tab active ' + cfg.tabClass;
+        contentEl.innerHTML = cfg.renderHTML();
+
+        const rect = tileEl.getBoundingClientRect();
+        const tx = rect.left + rect.width / 2 - window.innerWidth / 2;
+        const ty = rect.top + rect.height / 2 - window.innerHeight / 2;
+
+        backdrop.classList.add('csd-open');
+        vscreen.classList.add('csd-open');
+
+        if (typeof gsap !== 'undefined') {
+          gsap.fromTo(vscreen,
+            { x: tx, y: ty, scale: 0.08, opacity: 0, force3D: true },
+            { x: 0, y: 0, scale: 1, opacity: 1, duration: 0.58, ease: 'power3.out' }
+          );
+          gsap.fromTo(backdrop, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: 'power2.out' });
+        } else {
+          vscreen.style.transform = 'translate(-50%,-50%) scale(1)';
+          vscreen.style.opacity = '1';
+        }
+
+        if (platform === 'tryhackme') {
+          requestAnimationFrame(function () {
+            var f = document.getElementById('thmProgFill');
+            if (f) setTimeout(function () { f.style.width = '62%'; }, 120);
+          });
+        }
+
+        // Animate LeetCode donut & bars
+        if (platform === 'leetcode') {
+          setTimeout(function () {
+            var arc = document.getElementById('lcDonutArc');
+            if (arc) {
+              var d = (window._csdData && window._csdData.leetcode) || {};
+              var solved = parseInt(d.solved) || 0;
+              var circumference = 2 * Math.PI * 54;
+              var filled = solved ? Math.round(solved / 3000 * circumference) : 0;
+              arc.style.strokeDasharray = filled + ' ' + (circumference - filled + 1);
+            }
+            var easy = parseInt((window._csdData && window._csdData.leetcode && window._csdData.leetcode.easy) || 0);
+            var medium = parseInt((window._csdData && window._csdData.leetcode && window._csdData.leetcode.medium) || 0);
+            var hard = parseInt((window._csdData && window._csdData.leetcode && window._csdData.leetcode.hard) || 0);
+            var be = document.getElementById('lcBarE'); if (be) be.style.width = (easy ? Math.round(easy / 800 * 100) : 0) + '%';
+            var bm = document.getElementById('lcBarM'); if (bm) bm.style.width = (medium ? Math.round(medium / 1600 * 100) : 0) + '%';
+            var bh = document.getElementById('lcBarH'); if (bh) bh.style.width = (hard ? Math.round(hard / 600 * 100) : 0) + '%';
+          }, 120);
+        }
+
+        // Draw dot-matrix activity grids for all platforms
+        setTimeout(function () { drawActivityGrid(platform); }, 160);
+
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeVscreen() {
+        if (!activeplatform) return;
+        activeplatform = null;
+        document.body.style.overflow = '';
+
+        if (typeof gsap !== 'undefined') {
+          gsap.to(vscreen, {
+            scale: 0.92, opacity: 0, y: 16, duration: 0.28, ease: 'power2.in',
+            onComplete: function () {
+              vscreen.classList.remove('csd-open');
+              gsap.set(vscreen, { clearProps: 'all' });
+              contentEl.innerHTML = '';
+            }
+          });
+          gsap.to(backdrop, {
+            opacity: 0, duration: 0.25, ease: 'power2.in',
+            onComplete: function () { backdrop.classList.remove('csd-open'); }
+          });
+        } else {
+          vscreen.classList.remove('csd-open');
+          backdrop.classList.remove('csd-open');
+          gsap && gsap.set(vscreen, { clearProps: 'all' });
+          contentEl.innerHTML = '';
+        }
+      }
+
+      document.querySelectorAll('.csd-tile').forEach(function (tile) {
+        tile.addEventListener('click', function () {
+          if (activeplatform === tile.dataset.platform) { closeVscreen(); return; }
+          openVscreen(tile.dataset.platform, tile);
+        });
+        tile.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tile.click(); }
+        });
       });
-      tile.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tile.click(); }
+
+      closeBtn && closeBtn.addEventListener('click', closeVscreen);
+      backdrop && backdrop.addEventListener('click', closeVscreen);
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && activeplatform) closeVscreen();
       });
-    });
 
-    closeBtn && closeBtn.addEventListener('click', closeVscreen);
-    backdrop && backdrop.addEventListener('click', closeVscreen);
+      vscreen && vscreen.addEventListener('click', function (e) { e.stopPropagation(); });
 
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && activeplatform) closeVscreen();
-    });
-
-    vscreen && vscreen.addEventListener('click', function(e) { e.stopPropagation(); });
-
-  })();
+    })();
   </script>
 
 
   <!-- Credential Modal -->
-  <div class="cred-modal-overlay" id="credModalOverlay" role="dialog" aria-modal="true" aria-labelledby="credModalTitle">
+  <div class="cred-modal-overlay" id="credModalOverlay" role="dialog" aria-modal="true"
+    aria-labelledby="credModalTitle">
     <div class="cred-modal">
       <button class="cred-modal-close" id="credModalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
       <div class="cred-modal-icon" id="credModalIcon">🔒</div>
@@ -4417,9 +4914,9 @@
     function openCredModal(title, org, icon, url) {
       const overlay = document.getElementById('credModalOverlay');
       document.getElementById('credModalTitle').textContent = title;
-      document.getElementById('credModalOrg').textContent   = org;
-      document.getElementById('credModalIcon').textContent  = icon;
-      document.getElementById('credModalLink').href         = url;
+      document.getElementById('credModalOrg').textContent = org;
+      document.getElementById('credModalIcon').textContent = icon;
+      document.getElementById('credModalLink').href = url;
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
@@ -4429,10 +4926,10 @@
     }
     document.getElementById('credModalClose').addEventListener('click', closeCredModal);
     document.getElementById('credModalDismiss').addEventListener('click', closeCredModal);
-    document.getElementById('credModalOverlay').addEventListener('click', function(e) {
+    document.getElementById('credModalOverlay').addEventListener('click', function (e) {
       if (e.target === this) closeCredModal();
     });
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeCredModal();
     });
   </script>
